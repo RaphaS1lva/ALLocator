@@ -11,5 +11,6 @@ COPY app ./app
 RUN useradd -m appuser
 USER appuser
 
+# HF Spaces usa 7860 fixo; Render injeta $PORT — o shell-form cobre os dois.
 EXPOSE 7860
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]
+CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-7860}
