@@ -1,0 +1,60 @@
+# Build do portal (Vite) e publicação no GitHub Pages.
+# As variáveis VITE_* vêm dos SECRETS do repositório (Settings -> Secrets and
+# variables -> Actions). A anon key do Supabase é pública por design (a
+# segurança vem do RLS), mas mantê-la em secret facilita trocar de projeto.
+name: Deploy portal (GitHub Pages)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'datamaster-portal/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: datamaster-portal/package-lock.json
+
+      - name: Instalar dependências
+        working-directory: datamaster-portal
+        run: npm ci
+
+      - name: Build
+        working-directory: datamaster-portal
+        run: npm run build
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: datamaster-portal/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

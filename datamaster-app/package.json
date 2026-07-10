@@ -1,0 +1,20 @@
+{
+  "name": "datamaster-allocator",
+  "version": "1.0.0",
+  "description": "Alocador contábil BP & DRE -> Plano de Contas (Shadow/Rastreabilidade) em JS puro, sem dependências. Front offline com IndexedDB e dicionário dinâmico; migrável para React + Supabase.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "serve": "python -m http.server 8765",
+    "test": "node test/core.test.mjs && node test/ui.smoke.mjs && node test/db.test.mjs && node test/import.test.mjs && node test/pdf.test.mjs",
+    "test:core": "node test/core.test.mjs",
+    "test:ui": "node test/ui.smoke.mjs",
+    "test:db": "node test/db.test.mjs",
+    "test:import": "node test/import.test.mjs",
+    "test:pdf": "node test/pdf.test.mjs",
+    "seeds": "python _assets_extracted/gen_seeds.py"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,142 @@
+=== SHADOW year value cols E/F/G (row 5) and H/I ===
+B2: None
+E2: None
+F2: None
+G2: None
+E5: =IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(E$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$N:$N,$AM5),0)
++IF($N5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(E$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$N5),0))
++IF($O5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(E$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$O5),0))
++IF($P5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(E$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$P5),0))
++IF($Q5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(E$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$Q5),0))
+-IF($J5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(E$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$J5,rastreabilidade!$N:$N,$AM5),0))
+-IF($K5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(E$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$K5,rastreabilidade!$N:$N,$AM5),0))
+-IF($L5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(E$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$L5,rastreabilidade!$N:$N,$AM5),0))
+-IF($M5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(E$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$M5,rastreabilidade!$N:$N,$AM5),0))
+F5: =IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(F$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$N:$N,$AM5),0)
++IF($N5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(F$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$N5),0))
++IF($O5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(F$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$O5),0))
++IF($P5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(F$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$P5),0))
++IF($Q5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(F$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$Q5),0))
+-IF($J5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(F$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$J5,rastreabilidade!$N:$N,$AM5),0))
+-IF($K5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(F$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$K5,rastreabilidade!$N:$N,$AM5),0))
+-IF($L5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(F$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$L5,rastreabilidade!$N:$N,$AM5),0))
+-IF($M5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(F$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$M5,rastreabilidade!$N:$N,$AM5),0))
+G5: =IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(G$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$N:$N,$AM5),0)
++IF($N5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(G$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$N5),0))
++IF($O5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(G$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$O5),0))
++IF($P5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(G$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$P5),0))
++IF($Q5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(G$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$Q5),0))
+-IF($J5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(G$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$J5,rastreabilidade!$N:$N,$AM5),0))
+-IF($K5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(G$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$K5,rastreabilidade!$N:$N,$AM5),0))
+-IF($L5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(G$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$L5,rastreabilidade!$N:$N,$AM5),0))
+-IF($M5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(G$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$M5,rastreabilidade!$N:$N,$AM5),0))
+H5: None
+I5: ARRAYFORMULA ref=I5 text==_xlfn.LET(
+_xlpm.mem,H5,
+_xlpm.retiradas,J5:M5,
+_xlpm.adicoes,N5:Q5,
+_xlpm.memAjustada,_xlfn.REDUCE(_xlpm.mem,_xlpm.retiradas,_xlfn.LAMBDA(_xlpm.x,_xlpm.y,IF(_xlpm.y<>"",SUBSTITUTE(_xlpm.x," + ("&_xlpm.y&")",""),_xlpm.x))),
+_xlpm.memRemovida,_xlfn.REDUCE(_xlpm.memAjustada,_xlpm.retiradas,_xlfn.LAMBDA(_xlpm.x,_xlpm.y,IF(_xlpm.y<>"",SUBSTITUTE(_xlpm.x,"("&_xlpm.y&")",""),_xlpm.x))),
+_xlpm.memSemSinal,IF(OR(LEFT(_xlpm.memRemovida,3)=" + ",LEFT(_xlpm.memRemovida,3)=" - "),MID(_xlpm.memRemovida,4,LEN(_xlpm.memRemovida)),_xlpm.memRemovida),
+_xlpm.memFinal,IF(OR(RIGHT(_xlpm.memSemSinal,3)=" + ",RIGHT(_xlpm.memSemSinal,3)=" - "),LEFT(_xlpm.memSemSinal,LEN(_xlpm.memSemSinal)-3),_xlpm.memSemSinal),
+_xlpm.adicoesTxt,_xlfn.TEXTJOIN(" + ",TRUE,IF(_xlpm.adicoes<>"","("&_xlpm.adicoes&")","")),
+IF(_xlpm.memFinal="",_xlpm.adicoesTxt,IF(_xlpm.adicoesTxt="",_xlpm.memFinal,_xlpm.memFinal&" + "&_xlpm.adicoesTxt))
+)
+
+=== SHADOW DRE year cols W/X/Y (row 5) and Z/AA/AB ===
+T2: None
+W2: None
+X2: None
+Y2: None
+W5: =IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(W$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$N:$N,$AN5),0)*IF($AB5="sim",-1,1)
++IF($AG5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(W$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AG5),0))
++IF($AH5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(W$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AH5),0))
++IF($AI5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(W$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AI5),0))
++IF($AJ5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(W$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AJ5),0))
+-IF($AC5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(W$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AC5,rastreabilidade!$N:$N,$AN5),0))
+-IF($AD5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(W$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AD5,rastreabilidade!$N:$N,$AN5),0))
+-IF($AE5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(W$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AE5,rastreabilidade!$N:$N,$AN5),0))
+-IF($AF5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(W$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AF5,rastreabilidade!$N:$N,$AN5),0))
+X5: =IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(X$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$N:$N,$AN5),0)*IF($AB5="sim",-1,1)
++IF($AG5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(X$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AG5),0))
++IF($AH5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(X$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AH5),0))
++IF($AI5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(X$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AI5),0))
++IF($AJ5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(X$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AJ5),0))
+-IF($AC5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(X$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AC5,rastreabilidade!$N:$N,$AN5),0))
+-IF($AD5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(X$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AD5,rastreabilidade!$N:$N,$AN5),0))
+-IF($AE5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(X$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AE5,rastreabilidade!$N:$N,$AN5),0))
+-IF($AF5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(X$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AF5,rastreabilidade!$N:$N,$AN5),0))
+Y5: =IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(Y$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$N:$N,$AN5),0)*IF($AB5="sim",-1,1)
++IF($AG5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(Y$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AG5),0))
++IF($AH5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(Y$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AH5),0))
++IF($AI5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(Y$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AI5),0))
++IF($AJ5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(Y$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AJ5),0))
+-IF($AC5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(Y$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AC5,rastreabilidade!$N:$N,$AN5),0))
+-IF($AD5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(Y$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AD5,rastreabilidade!$N:$N,$AN5),0))
+-IF($AE5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(Y$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AE5,rastreabilidade!$N:$N,$AN5),0))
+-IF($AF5="",0,IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH(Y$3,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$M:$M,$AF5,rastreabilidade!$N:$N,$AN5),0))
+Z5: None
+AA5: ARRAYFORMULA ref=AA5 text==_xlfn.LET(
+_xlpm.mem,Z5,
+_xlpm.retiradas,AC5:AF5,
+_xlpm.adicoes,AG5:AJ5,
+_xlpm.memAjustada,_xlfn.REDUCE(_xlpm.mem,_xlpm.retiradas,_xlfn.LAMBDA(_xlpm.x,_xlpm.y,IF(_xlpm.y<>"",SUBSTITUTE(_xlpm.x," + ("&_xlpm.y&")",""),_xlpm.x))),
+_xlpm.memRemovida,_xlfn.REDUCE(_xlpm.memAjustada,_xlpm.retiradas,_xlfn.LAMBDA(_xlpm.x,_xlpm.y,IF(_xlpm.y<>"",SUBSTITUTE(_xlpm.x,"("&_xlpm.y&")",""),_xlpm.x))),
+_xlpm.memSemSinal,IF(OR(LEFT(_xlpm.memRemovida,3)=" + ",LEFT(_xlpm.memRemovida,3)=" - "),MID(_xlpm.memRemovida,4,LEN(_xlpm.memRemovida)),_xlpm.memRemovida),
+_xlpm.memFinal,IF(OR(RIGHT(_xlpm.memSemSinal,3)=" + ",RIGHT(_xlpm.memSemSinal,3)=" - "),LEFT(_xlpm.memSemSinal,LEN(_xlpm.memSemSinal)-3),_xlpm.memSemSinal),
+_xlpm.adicoesTxt,_xlfn.TEXTJOIN(" + ",TRUE,IF(_xlpm.adicoes<>"","("&_xlpm.adicoes&")","")),
+IF(_xlpm.memFinal="",_xlpm.adicoesTxt,IF(_xlpm.adicoesTxt="",_xlpm.memFinal,_xlpm.memFinal&" + "&_xlpm.adicoesTxt))
+)
+AB5: None
+
+=== LISTAS A2/C2/E2 ===
+A2: ARRAYFORMULA ref=A2 text==IFERROR(_xlfn._xlws.SORT(_xlfn.UNIQUE(_xlfn._xlws.FILTER(rastreabilidade!$M$2:$M$1048576,rastreabilidade!$M$2:$M$1048576<>""))),"")
+C2: ARRAYFORMULA ref=C2 text==IFERROR(_xlfn.LET(
+_xlpm.Base,_xlfn._xlws.SORT(_xlfn.UNIQUE(_xlfn._xlws.FILTER(rastreabilidade!$M$2:$M$1048576,rastreabilidade!$M$2:$M$1048576<>""))),
+_xlpm.Usados,_xlfn.TOCOL(_xlfn.VSTACK(shadow!$M$5:$P$41,shadow!$M$45:$P$78,shadow!$Y$5:$AB$41),1),
+_xlfn._xlws.FILTER(_xlpm.Base,ISNA(MATCH(_xlpm.Base,_xlpm.Usados,0)))
+),"")
+E2: ARRAYFORMULA ref=E2 text==IFERROR(_xlfn.LET(
+_xlpm.Base,_xlfn._xlws.SORT(_xlfn.UNIQUE(_xlfn._xlws.FILTER(rastreabilidade!$M$2:$M$1048576,rastreabilidade!$M$2:$M$1048576<>""))),
+_xlpm.Usados,_xlfn.TOCOL(_xlfn.VSTACK(shadow!$I$5:$L$41,shadow!$I$45:$L$78,shadow!$T$5:$X$41),1),
+_xlfn._xlws.FILTER(_xlpm.Base,ISNA(MATCH(_xlpm.Base,_xlpm.Usados,0)))
+),"")
+
+=== BASE DE DADOS headers row1 (A..AG) ===
+A1='Versão do GPT'
+B1='Matricula do usuario'
+C1='CNPJ'
+D1='Empresa'
+E1='Grupo'
+F1='Segmento ?'
+G1='Modelo do arquivo'
+H1='Formato Auditado'
+I1='Unidade de medida'
+J1='Moeda'
+K1='Modificação base de Valores'
+L1='Páginas do input'
+M1='Páginas de referência (BP+DRE)'
+N1='Nível de complexidade de alocação e planilhamento'
+O1='Tempo de Início (GPT)'
+P1='Tempo Final (GPT)'
+Q1='Data/hora de geração'
+R1='Arquivo gerado'
+S1='Anos identificados'
+T1='# periodos'
+U1='periodo 1'
+V1='periodo 2'
+W1='periodo 3'
+X1='# de alterações na rastreabilidade'
+Y1='# de alterações na shadow'
+Z1='quantidade de contas na rastreabilidade'
+AA1='quantidade de contas alocadas na rastreabilidade inicial'
+AB1='quantidade de contas alocadas na rastreabilidade'
+AC1='Quantidade de alocações Memoria anterior'
+AD1='Quantidade de alocações Memoria Dicionario'
+AE1='quatidade de alocações Julgamentais'
+
+=== SHADOW AM1/AN1 (inversor list source) ===
+AM1: None
+AN1: Sim
+AM2: None
+AN2: None

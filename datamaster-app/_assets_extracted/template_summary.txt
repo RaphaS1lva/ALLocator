@@ -1,0 +1,331 @@
+SHEETNAMES: ['shadow', 'rastreabilidade', 'listas', 'Base de dados']
+
+======================================================================
+SHADOW state=visible dims=A1:AT88
+
+-- HEADERS / MARKERS (rows 1-4, cols A..AB) --
+  A1=Shadow Empresa:
+  B3=ANTERIOR | C3=Memoria Anteior | E3=ANO 1 | F3=ANO 2 | G3=ANO 3 | H3=Memoria Atual | I3=Memoria Atual Ajustada | J3=Retirar | K3=Retirar | L3=Retirar | M3=Retirar | N3=Adicionar | O3=Adicionar | P3=Adicionar | Q3=Adicionar | T3=ANTERIOR | U3=Memoria Anteior | W3=ATUAL 1 | X3=ATUAL 2 | Y3=ATUAL 3 | Z3=Memoria Atual | AA3=Memoria Atual Ajustada | AB3=Inversor de Sinal | AC3=Retirar | AD3=Retirar | AE3=Retirar | AF3=Retirar | AG3=Adicionar | AH3=Adicionar | AI3=Adicionar | AJ3=Adicionar
+  A4=ATIVO | B4=[F]=B2 | E4=[F]=E2 | F4=[F]=F2 | G4=[F]=G2 | S4=DEMONSTRAÇÃO DE RESULTADOS | T4=[F]=+B4 | W4=[F]=+E4 | X4=[F]=+F4 | Y4=[F]=+G4
+
+-- CONTAS ATIVO/PASSIVO (col A) + formulas B/H/I (rows 5-80) --
+  A5='Caixa'
+      B5=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A5,rastreabilidade!$D:$D,"Sim"),0)
+      I5=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C8FEFE00>
+  A6='Aplicações Financeiras'
+      B6=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A6,rastreabilidade!$D:$D,"Sim"),0)
+      I6=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C914F4D0>
+  A7='Disponibilidades'
+      B7=[F]=+B6+B5
+  A8='Clientes'
+      B8=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A8,rastreabilidade!$D:$D,"Sim"),0)
+      I8=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91202B0>
+  A9='Clientes - Grupo'
+      B9=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A9,rastreabilidade!$D:$D,"Sim"),0)
+      I9=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9047020>
+  A10='-PDD'
+      B10=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A10,rastreabilidade!$D:$D,"Sim"),0)
+      I10=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9047570>
+  A11='Clientes Líquido'
+      B11=[F]=+B8+B9-B10
+  A12='Matéria-Prima'
+      B12=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A12,rastreabilidade!$D:$D,"Sim"),0)
+      I12=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91E8230>
+  A13='Produtos em Elaboração'
+      B13=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A13,rastreabilidade!$D:$D,"Sim"),0)
+      I13=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91E8320>
+  A14='Produtos Acabados'
+      B14=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A14,rastreabilidade!$D:$D,"Sim"),0)
+      I14=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C90C3E70>
+  A15='Estoques'
+      B15=[F]=+B12+B13+B14
+  A16='Ajustes derivativos / cambio (AC)'
+      B16=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A16,rastreabilidade!$D:$D,"Sim"),0)
+      I16=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C90771D0>
+  A17='Adiantamento a Fornecedores'
+      B17=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A17,rastreabilidade!$D:$D,"Sim"),0)
+      I17=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C90FE200>
+  A18='Mútuo Financeiro'
+      B18=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A18,rastreabilidade!$D:$D,"Sim"),0)
+      I18=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C912B890>
+  A19='Impostos a Recuperar'
+      B19=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A19,rastreabilidade!$D:$D,"Sim"),0)
+      I19=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C912B110>
+  A20='Outros Operacionais (AC)'
+      B20=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A20,rastreabilidade!$D:$D,"Sim"),0)
+      I20=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91B26D0>
+  A21='Outros Não Operacionais (AC)'
+      B21=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A21,rastreabilidade!$D:$D,"Sim"),0)
+      I21=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91B0FD0>
+  A22='TOTAL ATIVO CIRCULANTE'
+      B22=[F]=SUM(B7,B11,B15,B16:B21)
+  A23='Ajustes derivativos / cambio (ANC)'
+      B23=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A23,rastreabilidade!$D:$D,"Sim"),0)
+      I23=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9173AD0>
+  A24='Impostos Diferidos'
+      B24=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A24,rastreabilidade!$D:$D,"Sim"),0)
+      I24=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9173B30>
+  A25='Impostos a recuperar/Crédito tributário'
+      B25=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A25,rastreabilidade!$D:$D,"Sim"),0)
+      I25=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9173BF0>
+  A26='Mútuo Financeiro LP'
+      B26=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A26,rastreabilidade!$D:$D,"Sim"),0)
+      I26=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9173A70>
+  A27='Aplicações Financeiras de LP'
+      B27=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A27,rastreabilidade!$D:$D,"Sim"),0)
+      I27=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9173CB0>
+  A28='Outros Operacionais (ANC)'
+      B28=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A28,rastreabilidade!$D:$D,"Sim"),0)
+      I28=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9173DD0>
+  A29='Outros Não Operacionais LP (ANC)'
+      B29=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A29,rastreabilidade!$D:$D,"Sim"),0)
+      I29=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9126630>
+  A30='TOTAL ATIVO REALIZÁVEL LP'
+      B30=[F]=SUM(B23:B29)
+  A31='Direito de Uso'
+      B31=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A31,rastreabilidade!$D:$D,"Sim"),0)
+      I31=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9173D70>
+  A32='- Depreciação acumulada (Direito de uso)'
+      B32=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A32,rastreabilidade!$D:$D,"Sim"),0)
+      I32=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9126870>
+  A33='Direito de Uso Líquido'
+      B33=[F]=+B31-B32
+  A34='Terreno'
+      B34=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A34,rastreabilidade!$D:$D,"Sim"),0)
+      I34=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91267B0>
+  A35='Edificios, maquinas e outros'
+      B35=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A35,rastreabilidade!$D:$D,"Sim"),0)
+      I35=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91268D0>
+  A36='-Depreciação Acumulada'
+      B36=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A36,rastreabilidade!$D:$D,"Sim"),0)
+      I36=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F00B0>
+  A37='Imobilizado líquido'
+      B37=[F]=+B34+B35-B36
+  A38='Investimentos'
+      B38=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A38,rastreabilidade!$D:$D,"Sim"),0)
+      I38=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F0530>
+  A39='Outros Ativos Intangiveis / Goodwill'
+      B39=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A39,rastreabilidade!$D:$D,"Sim"),0)
+      I39=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F0590>
+  A40='TOTAL ATIVO FIXO'
+      B40=[F]=SUM(B37:B39,B33)
+  A41='TOTAL ATIVO'
+      B41=[F]=+B40+B30+B22
+  A44='PASSIVO'
+      B44=[F]=B2
+  A45='Bancos'
+      B45=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A45,rastreabilidade!$D:$D,"Sim"),0)
+      I45=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F0050>
+  A46='Outras Dividas Financeiras'
+      B46=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A46,rastreabilidade!$D:$D,"Sim"),0)
+      I46=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F07D0>
+  A47='Confirming'
+      B47=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A47,rastreabilidade!$D:$D,"Sim"),0)
+      I47=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F06B0>
+  A48='Dividas Fiscais de Curto Prazo'
+      B48=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A48,rastreabilidade!$D:$D,"Sim"),0)
+      I48=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F08F0>
+  A49='Ajustes derivativos / cambio (+)'
+      B49=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A49,rastreabilidade!$D:$D,"Sim"),0)
+      I49=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F0770>
+  A50='Fornecedores'
+      B50=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A50,rastreabilidade!$D:$D,"Sim"),0)
+      I50=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F09B0>
+  A51='Fornecedores - Partes Relacionadas'
+      B51=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A51,rastreabilidade!$D:$D,"Sim"),0)
+      I51=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F0B30>
+  A52='Fornecedores Totais'
+      B52=[F]=B50+B51
+  A53='Passivo de Arrendamento Circulante'
+      B53=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A53,rastreabilidade!$D:$D,"Sim"),0)
+      I53=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F0CB0>
+  A54='Mútuo Financeiro'
+      B54=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A54,rastreabilidade!$D:$D,"Sim"),0)
+      I54=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F0BF0>
+  A55='Salários'
+      B55=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A55,rastreabilidade!$D:$D,"Sim"),0)
+      I55=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F0E30>
+  A56='Impostos'
+      B56=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A56,rastreabilidade!$D:$D,"Sim"),0)
+      I56=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F0C50>
+  A57='Adiantamento de Clientes'
+      B57=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A57,rastreabilidade!$D:$D,"Sim"),0)
+      I57=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F0F50>
+  A58='Dividendos a Pagar'
+      B58=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A58,rastreabilidade!$D:$D,"Sim"),0)
+      I58=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F1010>
+  A59='Outros Operacionais (PC)'
+      B59=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A59,rastreabilidade!$D:$D,"Sim"),0)
+      I59=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F10D0>
+  A60='Outros Não Operacionais (PC)'
+      B60=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A60,rastreabilidade!$D:$D,"Sim"),0)
+      I60=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F0DD0>
+  A61='TOTAL PASSIVO CIRCULANTE'
+      B61=[F]=SUM(B52:B60)+SUM(B45:B49)
+  A62='Bancos LP'
+      B62=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A62,rastreabilidade!$D:$D,"Sim"),0)
+      I62=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F11F0>
+  A63='Outras Dividas Financeiras LP'
+      B63=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A63,rastreabilidade!$D:$D,"Sim"),0)
+      I63=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F1250>
+  A64='Dividas Fiscais LP'
+      B64=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A64,rastreabilidade!$D:$D,"Sim"),0)
+      I64=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F1310>
+  A65='Ajustes derivativos / cambio (PNC)'
+      B65=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A65,rastreabilidade!$D:$D,"Sim"),0)
+      I65=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F1370>
+  A66='Passivo de Arrendamento LP'
+      B66=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A66,rastreabilidade!$D:$D,"Sim"),0)
+      I66=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F13D0>
+  A67='Mútuo Financeiro LP'
+      B67=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A67,rastreabilidade!$D:$D,"Sim"),0)
+      I67=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F1490>
+  A68='Provisões'
+      B68=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A68,rastreabilidade!$D:$D,"Sim"),0)
+      I68=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F14F0>
+  A69='Outros Operacionais (PNC)'
+      B69=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A69,rastreabilidade!$D:$D,"Sim"),0)
+      I69=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F1550>
+  A70='Outros Não Operacionais (PNC)'
+      B70=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A70,rastreabilidade!$D:$D,"Sim"),0)
+      I70=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F15B0>
+  A71='TOTAL PASSIVO NÃO CIRCULANTE'
+      B71=[F]=SUM(B62:B70)
+  A72='TOTAL PASSIVO'
+      B72=[F]=B71+B61
+  A75='PARTICIPAÇÕES MINORITÁRIAS'
+      B75=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A75,rastreabilidade!$D:$D,"Sim"),0)
+      I75=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F1430>
+  A76='Capital Social'
+      B76=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A76,rastreabilidade!$D:$D,"Sim"),0)
+      I76=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F1610>
+  A77='Lucros Acumulados'
+      B77=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A77,rastreabilidade!$D:$D,"Sim"),0)
+      I77=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F1670>
+  A78='Outras Reservas'
+      B78=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($B$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$A78,rastreabilidade!$D:$D,"Sim"),0)
+      I78=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F16D0>
+  A79='PATRIMÔNIO LÍQUIDO'
+      B79=[F]=SUM(B76:B78)
+      I79=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F1730>
+  A80='RECURSOS PROPRIOS - Reportado com IFRS16'
+      B80=[F]=SUM(B75+B79)
+
+-- CONTAS DRE (col S) + formulas T/Z/AA/AB (rows 5-40) --
+  S5='Vendas Totais'
+      T5=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S5,rastreabilidade!$D:$D,"Sim"),0)
+      AA5=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C914F390>
+  S6='-Impostos'
+      T6=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S6,rastreabilidade!$D:$D,"Sim"),0)
+      AA6=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91208A0>
+  S7='Vendas Líquidas'
+      T7=[F]=+T5-T6
+  S8='-Custo de Produtos Vendidos'
+      T8=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S8,rastreabilidade!$D:$D,"Sim"),0)
+      AA8=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C909FAD0>
+  S9='Resultado Bruto'
+      T9=[F]=+T7-T8
+  S10='- Despesas com Vendas'
+      T10=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S10,rastreabilidade!$D:$D,"Sim"),0)
+      AA10=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C90E1B50>
+  S11='- Despesas Administrativas'
+      T11=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S11,rastreabilidade!$D:$D,"Sim"),0)
+      AA11=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C90E1C50>
+  S12='Resultado da Exploração '
+      T12=[F]=T9-T10-T11
+  S13='+/-Outras Receitas/Despesas Operacionais'
+      T13=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S13,rastreabilidade!$D:$D,"Sim"),0)
+      AA13=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C90C3D90>
+  S14='+/-Provisões Operacionais'
+      T14=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S14,rastreabilidade!$D:$D,"Sim"),0)
+      AA14=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91982C0>
+  S15='Resultado Operacional (EBIT)'
+      T15=[F]=SUM(T12:T14)
+  S16='- Depreciação e amortização (imob e intang)'
+      T16=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S16,rastreabilidade!$D:$D,"Sim"),0)
+      AA16=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9077710>
+  S17='- Depreciação/Amortização dos Arrendamentos Op.'
+      T17=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S17,rastreabilidade!$D:$D,"Sim"),0)
+      AA17=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C90FFC20>
+  S18='EBITDA'
+      T18=[F]=+T15+T16+T17-T14
+  S19='- Despesas/Custo de Aluguel'
+      T19=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S19,rastreabilidade!$D:$D,"Sim"),0)
+      AA19=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C90BB2F0>
+  S20='EBITDA ex-IFRS16'
+      T20=[F]=+T18+T19
+  S21='-  Despesas Financeiras'
+      T21=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S21,rastreabilidade!$D:$D,"Sim"),0)
+      AA21=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9176E40>
+  S22='+ Receitas Financeiras'
+      T22=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S22,rastreabilidade!$D:$D,"Sim"),0)
+      AA22=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9181630>
+  S23='+/- Resultado Financeiro'
+      T23=[F]=-T21+T22
+  S24='+/- Variações Cambiais'
+      T24=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S24,rastreabilidade!$D:$D,"Sim"),0)
+      AA24=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9173B90>
+  S25='+/- Equivalência Patrimonial'
+      T25=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S25,rastreabilidade!$D:$D,"Sim"),0)
+      AA25=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9173C50>
+  S26='Lucro antes de Impostos e Extraordinários'
+      T26=[F]=+T15+T23+T24+T25
+  S27='Outros não recorrentes e/ou não operacionais'
+      T27=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S27,rastreabilidade!$D:$D,"Sim"),0)
+      AA27=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9173D10>
+  S28='+/- Créditos Tributários'
+      T28=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S28,rastreabilidade!$D:$D,"Sim"),0)
+      AA28=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9173E30>
+  S29='+/- Resultado de alienação do Imobilizado'
+      T29=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S29,rastreabilidade!$D:$D,"Sim"),0)
+      AA29=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9126750>
+  S30='- Juros de Arrendamento Operacional'
+      T30=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S30,rastreabilidade!$D:$D,"Sim"),0)
+      AA30=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9126810>
+  S31='+/- Resultado Extraordinário'
+      T31=[F]=+T27+T28+T29-T30
+  S32='Lucro antes de Impostos '
+      T32=[F]=+T26+T31
+  S33='- Impostos Pagos'
+      T33=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S33,rastreabilidade!$D:$D,"Sim"),0)
+      AA33=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C9126690>
+  S34='+/- Impostos Diferidos'
+      T34=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S34,rastreabilidade!$D:$D,"Sim"),0)
+      AA34=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91269F0>
+  S35='Lucro Liquido'
+      T35=[F]=+T32-T33+T34
+  S36='+/- Resultados Abrangentes'
+      T36=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S36,rastreabilidade!$D:$D,"Sim"),0)
+      AA36=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F0170>
+  S37='Lucro Líquido+Resultado Abrangente a Distribuir'
+      T37=[F]=T35+T36
+  S39='- Dividendos'
+      T39=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S39,rastreabilidade!$D:$D,"Sim"),0)
+      AA39=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F05F0>
+  S40='+/- Participações Minoritárias'
+      T40=[F]=IFERROR(SUMIFS(INDEX(rastreabilidade!$F:$H,0,MATCH($T$2,rastreabilidade!$F$1:$H$1,0)),rastreabilidade!$K:$K,$S40,rastreabilidade!$D:$D,"Sim"),0)
+      AA40=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F0650>
+
+-- DATA VALIDATIONS (shadow) --
+  A12 type=list allow_blank=True f1="Matéria-Prima,Veiculos Novos (autos),Matéria-Prima,terrenos e outros (incorporadoras)"
+  A13 type=list allow_blank=True f1="Produtos em Elaboração,Veiculos Usados (autos),Obras em Andamento (incorporadora)"
+  A14 type=list allow_blank=True f1="Produtos Acabados,Peças e outros (autos),Obras Concluidas (incorporadoras)"
+  AB5:AB6 AB8 AB10:AB11 AB13:AB14 AB16:AB17 AB19 AB21:AB22 AB24:AB25 AB27:AB30 AB33:AB34 AB36 AB39:AB40 type=list allow_blank=True f1=$AM$1:$AN$1
+
+======================================================================
+LISTAS state=visible dims=A1:L4
+  A1=Origem
+  C1=Adicionar
+  E1=Retirar
+  F1=Dica de Uso: Se A2 / C2 / E2 mostrarem so o cabecalho: clique na celula, (F2 + Enter)
+  A2=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F18B0>
+  C2=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F1910>
+  E2=[F]<openpyxl.worksheet.formula.ArrayFormula object at 0x00000286C91F1970>
+
+======================================================================
+RASTREABILIDADE state=visible dims=A1:N1
+  HEADERS: A1=Origem | B1=Hierarquia | C1=Totalizador | D1=Alocação da Hierarquia | E1=Página Referência | F1=Ano 1 | G1=Ano 2 | H1=Ano 3 | I1=Grupo | J1=Sub Categoria | K1=Destino no Template | L1=Tipo de Mapeamento | M1=Chave | N1=Chave Destino
+
+======================================================================
+BASE DE DADOS state=hidden dims=A1:AG3
+  HEADERS: A=Versão do GPT || B=Matricula do usuario || C=CNPJ || D=Empresa || E=Grupo || F=Segmento ? || G=Modelo do arquivo || H=Formato Auditado || I=Unidade de medida || J=Moeda || K=Modificação base de Valores || L=Páginas do input || M=Páginas de referência (BP+DRE) || N=Nível de complexidade de alocação e planilhamento || O=Tempo de Início (GPT) || P=Tempo Final (GPT) || Q=Data/hora de geração || R=Arquivo gerado || S=Anos identificados || T=# periodos || U=periodo 1 || V=periodo 2 || W=periodo 3 || X=# de alterações na rastreabilidade || Y=# de alterações na shadow || Z=quantidade de contas na rastreabilidade || AA=quantidade de contas alocadas na rastreabilidade inicial || AB=quantidade de contas alocadas na rastreabilidade || AC=Quantidade de alocações Memoria anterior || AD=Quantidade de alocações Memoria Dicionario || AE=quatidade de alocações Julgamentais

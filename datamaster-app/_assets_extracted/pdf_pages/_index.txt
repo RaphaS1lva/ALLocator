@@ -1,0 +1,4 @@
+obj6 2178x1542 bytes=244384 -> img_01_obj6_2178x1542.jpg
+obj8 620x35 bytes=1240 -> img_02_obj8_620x35.jpg
+obj17 896x1314 bytes=125024 -> img_03_obj17_896x1314.jpg
+obj31 2176x1523 bytes=74052 -> img_04_obj31_2176x1523.jpg

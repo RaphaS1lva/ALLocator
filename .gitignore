@@ -1,0 +1,19 @@
+# Segredos — NUNCA versionar
+.env
+.env.local
+*.local
+
+# Dados sensíveis de clientes (balanços reais de empresas fechadas)
+2025 - BALANÇO + DRE ASSINADO.pdf
+Base Demostrações financeiras 2026_Diaverum matriz.pdf
+# (fleury.pdf permanece: companhia aberta/ITR pública — usado pelo eval)
+
+# Build/deps
+node_modules/
+dist/
+__pycache__/
+*.pyc
+
+# Workspace local
+DataMaster.code-workspace
+Case DataMaster Engenharia AI.pdf

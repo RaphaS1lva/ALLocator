@@ -1,0 +1,522 @@
+{
+  "sheetnames": [
+    "Shadow",
+    "INTERPRETAÇÃO"
+  ],
+  "sheets": {
+    "Shadow": {
+      "title": "Shadow",
+      "headers": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": [
+        {
+          "col0": null,
+          "col1": null,
+          "col2": "ANO 1 ",
+          "col3": "ANO 2 ",
+          "col4": "ANO 3",
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "DEMONSTRAÇÃO DE RESULTADOS",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "IMPACTO no modelo",
+          "col6": null,
+          "col7": null,
+          "col8": "GPT"
+        },
+        {
+          "col0": null,
+          "col1": "Vendas Totais",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para lucro",
+          "col6": null,
+          "col7": null,
+          "col8": "+"
+        },
+        {
+          "col0": null,
+          "col1": "-Impostos",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para prejuizo",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "Vendas Líquidas",
+          "col2": 0,
+          "col3": 0,
+          "col4": 0,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "-Custo de Produtos Vendidos",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para prejuizo",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "Resultado Bruto",
+          "col2": 0,
+          "col3": 0,
+          "col4": 0,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "- Despesas com Vendas",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para prejuizo",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "- Despesas Administrativas",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para prejuizo",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "Resultado da Exploração ",
+          "col2": 0,
+          "col3": 0,
+          "col4": 0,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "+/-Outras Receitas/Despesas Operacionais",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para prejuizo ou lucro",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "+/-Provisões Operacionais",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para prejuizo ou lucro",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "Resultado Operacional (EBIT)",
+          "col2": 0,
+          "col3": 0,
+          "col4": 0,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "- Depreciação e amortização (imob e intang)",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "- Depreciação/Amortização dos Arrendamentos Op.",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "EBITDA",
+          "col2": 0,
+          "col3": 0,
+          "col4": 0,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "- Despesas/Custo de Aluguel",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "EBITDA ex-IFRS16",
+          "col2": 0,
+          "col3": 0,
+          "col4": 0,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "-  Despesas Financeiras",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para prejuizo",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "+ Receitas Financeiras",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para lucro",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "+/- Resultado Financeiro",
+          "col2": 0,
+          "col3": 0,
+          "col4": 0,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "+/- Variações Cambiais",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para prejuizo ou lucro",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "+/- Equivalência Patrimonial",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para prejuizo ou lucro",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "Lucro antes de Impostos e Extraordinários",
+          "col2": 0,
+          "col3": 0,
+          "col4": 0,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "Outros não recorrentes e/ou não operacionais",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para prejuizo ou lucro",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "+/- Créditos Tributários",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para prejuizo ou lucro",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "+/- Resultado de alienação do Imobilizado",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para prejuizo ou lucro",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "- Juros de Arrendamento Operacional",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para lucro",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "+/- Resultado Extraordinário",
+          "col2": 0,
+          "col3": 0,
+          "col4": 0,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "Lucro antes de Impostos ",
+          "col2": 0,
+          "col3": 0,
+          "col4": 0,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "- Impostos Pagos",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para prejuizo ou lucro",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "+/- Impostos Diferidos",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para prejuizo ou lucro",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "Lucro Liquido",
+          "col2": 0,
+          "col3": 0,
+          "col4": 0,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "+/- Resultados Abrangentes",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para prejuizo ou lucro",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "Lucro Líquido+Resultado Abrangente a Distribuir",
+          "col2": 0,
+          "col3": 0,
+          "col4": 0,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "Lucro líquido a distribuir ajustado",
+          "col2": 0,
+          "col3": 0,
+          "col4": 0,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "- Dividendos",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": "Contribui para prejuizo",
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "+/- Participações Minoritárias",
+          "col2": null,
+          "col3": null,
+          "col4": null,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        },
+        {
+          "col0": null,
+          "col1": "Lucro após dividendos e minoritários",
+          "col2": 0,
+          "col3": 0,
+          "col4": 0,
+          "col5": null,
+          "col6": null,
+          "col7": null,
+          "col8": null
+        }
+      ]
+    },
+    "INTERPRETAÇÃO": {
+      "title": "INTERPRETAÇÃO",
+      "headers": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": [
+        {
+          "col0": null,
+          "col1": null,
+          "col2": "LEITURA DO GPT",
+          "col3": null,
+          "col4": "IMPACTO no modelo",
+          "col5": "INPUT no modelo"
+        },
+        {
+          "col0": null,
+          "col1": null,
+          "col2": "Contribui para lucro",
+          "col3": null,
+          "col4": "Contribui para lucro",
+          "col5": "mesmo sinal orginal da leitura do GPT"
+        },
+        {
+          "col0": null,
+          "col1": null,
+          "col2": "Contribui para Prejuizo",
+          "col3": null,
+          "col4": "Contribui para lucro",
+          "col5": "inverter sinal na leitura do GPT"
+        },
+        {
+          "col0": null,
+          "col1": null,
+          "col2": "Contribui para lucro",
+          "col3": null,
+          "col4": "Contribui para prejuizo",
+          "col5": "inverter sinal na leitura do GPT"
+        },
+        {
+          "col0": null,
+          "col1": null,
+          "col2": "Contribui para Prejuizo",
+          "col3": null,
+          "col4": "Contribui para prejuizo",
+          "col5": "mesmo sinal orginal da leitura do GPT"
+        },
+        {
+          "col0": null,
+          "col1": null,
+          "col2": "Contribui para Prejuizo",
+          "col3": null,
+          "col4": "Contribui para prejuizo ou lucro",
+          "col5": "mesmo sinal orginal da leitura do GPT"
+        },
+        {
+          "col0": null,
+          "col1": null,
+          "col2": "Contribui para lucro",
+          "col3": null,
+          "col4": "Contribui para prejuizo ou lucro",
+          "col5": "mesmo sinal orginal da leitura do GPT"
+        }
+      ]
+    }
+  }
+}
