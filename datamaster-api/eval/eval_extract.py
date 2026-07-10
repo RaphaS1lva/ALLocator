@@ -45,11 +45,28 @@ def main() -> None:
     with open(args.pdf, "rb") as f:
         r = httpx.post(f"{args.api}/extract",
                        files={"file": (Path(args.pdf).name, f, "application/pdf")},
-                       timeout=600)
+                       timeout=120)
     if r.status_code != 200:
         print(f"FALHA: HTTP {r.status_code}: {r.text[:300]}")
         sys.exit(1)
     out = r.json()
+    if "job_id" in out:  # protocolo assíncrono: polling até concluir
+        import time as _t
+        job = out["job_id"]
+        t0 = _t.time()
+        while _t.time() - t0 < 900:
+            _t.sleep(4)
+            st = httpx.get(f"{args.api}/extract/{job}", timeout=30).json()
+            if st.get("status") == "done":
+                out = st["result"]
+                break
+            if st.get("status") == "error":
+                print(f"FALHA no job: {st.get('detail')}")
+                sys.exit(1)
+            print(f"  … {st.get('progress', '')}", flush=True)
+        else:
+            print("FALHA: timeout aguardando o job")
+            sys.exit(1)
     rows = out["rows"]
     meta = out["meta"]
     print(f"provider={out.get('provider')} | {len(rows)} linhas extraídas")
