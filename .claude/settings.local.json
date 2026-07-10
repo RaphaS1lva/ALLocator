@@ -50,7 +50,17 @@
       "PowerShell(Start-Process -FilePath \"python\" -ArgumentList \"-m\",\"uvicorn\",\"app.main:app\",\"--port\",\"8123\" -WorkingDirectory \"C:\\\\Users\\\\rapha\\\\Documents\\\\DataMaster\\\\datamaster-api\" -WindowStyle Hidden; Start-Sleep 4; \\(Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8123/health\\).Content)",
       "Bash(curl -s -m 4 -o /dev/null -w \"HTTP %{http_code}\" http://localhost:5173/)",
       "Bash(curl -s -m 400 -X POST http://127.0.0.1:8123/extract -F \"file=@/c/Users/rapha/Documents/DataMaster/fleury.pdf\" -o /c/Users/rapha/AppData/Local/Temp/claude/C--Users-rapha-Documents-DataMaster/65370d18-9c66-4fdd-9d16-9ddd4d2344c1/scratchpad/ext_debug.json -w \"HTTP %{http_code} em %{time_total}s\")",
-      "PowerShell($env:Path += ';C:\\\\Program Files\\\\nodejs'; cd C:\\\\Users\\\\rapha\\\\Documents\\\\DataMaster\\\\datamaster-portal; npm run build 2>&1 | Select-String -Pattern 'error|built in' | Select-Object -First 4)"
+      "PowerShell($env:Path += ';C:\\\\Program Files\\\\nodejs'; cd C:\\\\Users\\\\rapha\\\\Documents\\\\DataMaster\\\\datamaster-portal; npm run build 2>&1 | Select-String -Pattern 'error|built in' | Select-Object -First 4)",
+      "Bash(git add *)",
+      "Bash(GIT_EDITOR=true git -c user.name=\"RaphaS1lva\" -c user.email=\"raphaelsilva73@gmail.com\" rebase --continue)",
+      "Bash(git push *)",
+      "Bash(git rebase *)",
+      "Bash(git ls-remote *)",
+      "Bash(git -c user.name=RaphaS1lva -c user.email=raphaelsilva73@gmail.com commit -q -m 'Dockerfile: respeitar $PORT do Render \\(mantendo 7860 p/ HF Spaces\\) *)",
+      "Bash(curl -s -m 120 https://allocator-b6mj.onrender.com/health)",
+      "Bash(python eval/eval_extract.py \"C:\\\\Users\\\\rapha\\\\Documents\\\\DataMaster\\\\fleury.pdf\" --api https://allocator-b6mj.onrender.com)",
+      "Bash(time curl -s -m 700 -X POST https://allocator-b6mj.onrender.com/extract -F \"file=@/c/Users/rapha/Documents/DataMaster/fleury.pdf\" -o /c/Users/rapha/AppData/Local/Temp/claude/C--Users-rapha-Documents-DataMaster/65370d18-9c66-4fdd-9d16-9ddd4d2344c1/scratchpad/ext_online.json -w \"HTTP %{http_code} em %{time_total}s\\\\n\")",
+      "Bash(git -c user.name=RaphaS1lva -c user.email=raphaelsilva73@gmail.com commit -q -m 'Extração como job assíncrono com progresso \\(sobrevive ao proxy do Render\\) *)"
     ]
   }
 }

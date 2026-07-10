@@ -16,7 +16,9 @@ from __future__ import annotations
 import json
 import os
 import re
+import time
 import unicodedata
+import uuid
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -121,11 +123,17 @@ MAX_FIN_PAGES = int(os.getenv("MAX_FIN_PAGES", "12"))
 PAGE_CONCURRENCY = int(os.getenv("PAGE_CONCURRENCY", "2"))
 
 
-async def _extract_two_pass(data: bytes, mime: str):
+def _noop(_msg: str) -> None:
+    return None
+
+
+async def _extract_two_pass(data: bytes, mime: str, progress=_noop):
     is_pdf = mime == "application/pdf"
+    progress("lendo a camada de texto do documento…")
     page_texts: list[str] = pdf_page_texts(data) if is_pdf else []
     n_text_ok = sum(1 for t in page_texts if text_quality_ok(t))
     text_first = is_pdf and page_texts and (n_text_ok / len(page_texts)) >= 0.4
+    progress("identificando páginas, visões e períodos…")
 
     # ---------- Passada 1: IDENTIFY ----------
     # PDF com camada de texto boa -> identificação por TEXTO (barata, estável,
@@ -173,6 +181,7 @@ async def _extract_two_pass(data: bytes, mime: str):
 
     async def one(pagina: int):
         texto = page_texts[pagina - 1] if 1 <= pagina <= len(page_texts) else ""
+        progress(f"extraindo página {pagina} ({len(paginas)} no total)…")
         async with sem:
             if text_quality_ok(texto):
                 prompt = EXTRACT_PAGE_TEXT.format(
@@ -206,6 +215,7 @@ async def _extract_two_pass(data: bytes, mime: str):
     # re-tentar sequencialmente as páginas que falharam recupera quase tudo.
     if pendentes:
         print(f"[extract] re-tentando {len(pendentes)} página(s) após pausa…", flush=True)
+        progress(f"re-tentando {len(pendentes)} página(s) que falharam (aguardando rate limit)…")
         await asyncio.sleep(10)
         ainda: list[tuple[int, str]] = []
         for p, _msg in pendentes:
@@ -233,28 +243,24 @@ async def _extract_two_pass(data: bytes, mime: str):
     return {"rows": all_rows, "meta": meta, "provider": ident_res.provider}
 
 
-@app.post("/extract")
-async def extract(file: UploadFile = File(...)):
-    ext = (file.filename or "").rsplit(".", 1)[-1].lower()
-    mime = MIME_BY_EXT.get(ext)
-    if not mime:
-        raise HTTPException(415, f"Formato .{ext} não suportado (use pdf/png/jpg/webp).")
-    data = await file.read()
-    if len(data) > MAX_UPLOAD_MB * 1024 * 1024:
-        raise HTTPException(413, f"Arquivo acima de {MAX_UPLOAD_MB} MB.")
-
+async def _do_extract(data: bytes, mime: str, progress=_noop) -> dict:
+    """Extração completa (duas passadas + fallback + saneamento + portão de
+    qualidade). Levanta HTTPException em falha."""
     out = None
     provider = None
     try:
-        two = await _extract_two_pass(data, mime)
+        two = await _extract_two_pass(data, mime, progress)
         if two:
             out = {"rows": two["rows"], "meta": two["meta"]}
             provider = two["provider"]
+    except HTTPException:
+        raise
     except (ProviderError, json.JSONDecodeError, ValueError) as e:
         print(f"[extract] duas-passadas falhou ({type(e).__name__}): {str(e)[:900]}", flush=True)
         out = None  # cai para o single-shot
 
     if out is None:
+        progress("tentando extração em passada única…")
         try:
             res = await complete_vision(EXTRACT, data, mime, json_mode=True)
             out = parse_json_loose(res.text)
@@ -264,6 +270,7 @@ async def extract(file: UploadFile = File(...)):
         except (json.JSONDecodeError, ValueError) as e:
             raise HTTPException(502, f"LLM devolveu JSON inválido: {e}") from e
 
+    progress("consolidando resultados…")
     rows = out.get("rows") or []
     # saneamento mínimo: valores numéricos, strings aparadas
     clean: list[dict] = []
@@ -301,6 +308,66 @@ async def extract(file: UploadFile = File(...)):
 
     return {"rows": clean, "meta": out.get("meta") or {}, "provider": provider,
             "prompt_version": PROMPT_VERSION}
+
+
+# ----------------------------------------------------------------------
+# Extração como JOB ASSÍNCRONO: proxies de host gratuito (Render) matam
+# requisições longas (~100s), e uma extração pode levar minutos. O POST
+# devolve um job_id imediatamente; o portal consulta GET /extract/{id}
+# a cada poucos segundos (e ainda ganha progresso em tempo real).
+# ----------------------------------------------------------------------
+JOBS: dict[str, dict] = {}
+JOB_TTL_S = 3600
+
+
+def _prune_jobs() -> None:
+    corte = time.time() - JOB_TTL_S
+    for jid in [j for j, v in JOBS.items() if v["ts"] < corte]:
+        JOBS.pop(jid, None)
+
+
+async def _run_extract_job(job_id: str, data: bytes, mime: str) -> None:
+    job = JOBS[job_id]
+
+    def progress(msg: str) -> None:
+        job["progress"] = msg
+
+    try:
+        job["result"] = await _do_extract(data, mime, progress)
+        job["status"] = "done"
+    except HTTPException as e:
+        job.update(status="error", code=e.status_code, detail=e.detail)
+    except Exception as e:  # noqa: BLE001 — job nunca pode morrer mudo
+        job.update(status="error", code=500, detail=f"{type(e).__name__}: {str(e)[:300]}")
+
+
+@app.post("/extract")
+async def extract(file: UploadFile = File(...)):
+    ext = (file.filename or "").rsplit(".", 1)[-1].lower()
+    mime = MIME_BY_EXT.get(ext)
+    if not mime:
+        raise HTTPException(415, f"Formato .{ext} não suportado (use pdf/png/jpg/webp).")
+    data = await file.read()
+    if len(data) > MAX_UPLOAD_MB * 1024 * 1024:
+        raise HTTPException(413, f"Arquivo acima de {MAX_UPLOAD_MB} MB.")
+
+    _prune_jobs()
+    job_id = uuid.uuid4().hex
+    JOBS[job_id] = {"status": "processing", "progress": "na fila…", "ts": time.time()}
+    asyncio.create_task(_run_extract_job(job_id, data, mime))
+    return {"job_id": job_id, "status": "processing"}
+
+
+@app.get("/extract/{job_id}")
+async def extract_status(job_id: str):
+    job = JOBS.get(job_id)
+    if not job:
+        raise HTTPException(404, "Job não encontrado (expirou ou a API reiniciou — reenvie o arquivo).")
+    if job["status"] == "done":
+        return {"status": "done", "result": job["result"]}
+    if job["status"] == "error":
+        return {"status": "error", "code": job.get("code", 500), "detail": job.get("detail", "")}
+    return {"status": "processing", "progress": job.get("progress", "")}
 
 
 # ----------------------------------------------------------------------

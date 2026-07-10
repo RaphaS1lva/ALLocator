@@ -75,6 +75,7 @@ export default function Analise() {
   const [visaoSel, setVisaoSel] = useState(''); // rótulo escolhido · 'AMBAS' · '' = n/a
   const julgTried = useRef(new Set()); // evita re-tentar julgamental nas mesmas linhas
   const [busy, setBusy] = useState('');
+  const [iaMsg, setIaMsg] = useState('');
   const [savedId, setSavedId] = useState(analiseId || null);
   const [parecerIA, setParecerIA] = useState('');
   const [selectedDestino, setSelectedDestino] = useState(null);
@@ -168,11 +169,12 @@ export default function Analise() {
     setStep(1);
   }
 
-  /** Extração via API de IA (texto-first no servidor). Retorna true se ok. */
+  /** Extração via API de IA (job assíncrono com progresso). Retorna true se ok. */
   async function extractViaIA(file) {
     try {
       setBusy('ia');
-      const out = await api.extract(file);
+      setIaMsg('enviando o documento…');
+      const out = await api.extract(file, setIaMsg);
           // CAPTURA COMPLETA vem com os totalizadores (pais). Para evitar
           // dupla contagem, quem aparece como pai de alguém entra como
           // contexto (Alocação=Não) — o analista promove no clique se quiser
@@ -219,7 +221,7 @@ export default function Analise() {
     } catch (e) {
       toast(`Extração via IA falhou: ${e.message}`, 'error');
       return false;
-    } finally { setBusy(''); }
+    } finally { setBusy(''); setIaMsg(''); }
   }
 
   /** Importação local (xlsx/csv/PDF editável) — roda no navegador. */
@@ -595,7 +597,8 @@ export default function Analise() {
                 {busy === 'lendo' || busy === 'ia' ? (
                   <>
                     <span className="spinner" />
-                    <div className="big">{busy === 'ia' ? 'Extraindo com IA de visão…' : 'Lendo documento…'}</div>
+                    <div className="big">{busy === 'ia' ? 'Extraindo com IA…' : 'Lendo documento…'}</div>
+                    {busy === 'ia' && <div className="hint">{iaMsg || 'processando…'}</div>}
                   </>
                 ) : (
                   <>

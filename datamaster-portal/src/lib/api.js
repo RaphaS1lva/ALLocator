@@ -35,12 +35,35 @@ export const api = {
    * @param {File} file
    * @returns {{rows:[], meta:{anos,unidade,moeda,isBalancete,paginas}}}
    */
-  async extract(file) {
+  /**
+   * Extração como JOB assíncrono: o POST devolve job_id na hora (sobrevive
+   * aos proxies de host gratuito, que matam requisições longas) e o portal
+   * consulta o progresso a cada 4s.
+   * @param {File} file
+   * @param {(msg: string) => void} [onProgress] mensagens de progresso ao vivo
+   */
+  async extract(file, onProgress) {
     const fd = new FormData();
     fd.append('file', file);
-    // documentos grandes + free tier sob rate limit podem levar vários
-    // minutos (retries em cascata) — o timeout precisa cobrir o pior caso
-    return req('/extract', { method: 'POST', formData: fd, timeoutMs: 720000 });
+    const start = await req('/extract', { method: 'POST', formData: fd, timeoutMs: 120000 });
+    if (start.rows) return start; // retrocompatível com API síncrona antiga
+    const jobId = start.job_id;
+    if (!jobId) throw new Error('API não retornou job de extração.');
+    const t0 = Date.now();
+    const LIMITE = 15 * 60 * 1000;
+    while (Date.now() - t0 < LIMITE) {
+      await new Promise((r) => setTimeout(r, 4000));
+      let st;
+      try {
+        st = await req(`/extract/${jobId}`, { timeoutMs: 20000 });
+      } catch {
+        continue; // oscilação de rede não mata o acompanhamento
+      }
+      if (st.status === 'done') return st.result;
+      if (st.status === 'error') throw new Error(st.detail || 'Falha na extração.');
+      if (onProgress && st.progress) onProgress(st.progress);
+    }
+    throw new Error('Tempo esgotado aguardando a extração (15 min).');
   },
 
   /**
