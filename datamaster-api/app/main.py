@@ -220,12 +220,15 @@ async def _extract_two_pass(data: bytes, mime: str, progress=_noop):
         else:
             all_rows.extend(r)
 
-    # 2ª VARREDURA: rate limits dos free tiers são POR MINUTO — pausar e
-    # re-tentar sequencialmente as páginas que falharam recupera quase tudo.
-    if pendentes:
-        print(f"[extract] re-tentando {len(pendentes)} página(s) após pausa…", flush=True)
-        progress(f"re-tentando {len(pendentes)} página(s) que falharam (aguardando rate limit)…")
-        await asyncio.sleep(10)
+    # VARREDURAS DE RECUPERAÇÃO: rate limits dos free tiers renovam POR
+    # MINUTO — esperar a janela virar e re-tentar sequencialmente recupera
+    # quase tudo (inclusive páginas que o detector de degeneração rejeitou).
+    for varredura, pausa in ((2, 35), (3, 60)):
+        if not pendentes:
+            break
+        print(f"[extract] varredura {varredura}: {len(pendentes)} página(s) após {pausa}s…", flush=True)
+        progress(f"re-tentando {len(pendentes)} página(s) (aguardando a janela de rate limit, ~{pausa}s)…")
+        await asyncio.sleep(pausa)
         ainda: list[tuple[int, str]] = []
         for p, _msg in pendentes:
             try:
