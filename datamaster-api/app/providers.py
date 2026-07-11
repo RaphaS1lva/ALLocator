@@ -275,7 +275,8 @@ def pdf_to_images(data: bytes, max_pages: int = 8, scale: float = 2.0) -> list[b
 
 async def _openai_compat(base_url: str, key: str, model: str, prompt: str, *,
                          images: list[tuple[str, str]] | None = None,
-                         json_mode: bool = False, name: str = "") -> str:
+                         json_mode: bool = False, name: str = "",
+                         max_tokens: int = 16384) -> str:
     """images: lista de (b64, mime) — múltiplas páginas viram múltiplas imagens."""
     if not key:
         raise ProviderError(f"{name}: API key ausente")
@@ -291,8 +292,8 @@ async def _openai_compat(base_url: str, key: str, model: str, prompt: str, *,
         "messages": [{"role": "user", "content": content}],
         "temperature": 0.0,
         # páginas densas geram JSONs longos — o default de alguns provedores
-        # TRUNCA a resposta (perdemos o fim do BP no eval do Fleury)
-        "max_tokens": 16384,
+        # TRUNCA a resposta; mas o teto precisa respeitar o TPM de cada um
+        "max_tokens": max_tokens,
     }
     if json_mode:
         body["response_format"] = {"type": "json_object"}
@@ -323,8 +324,10 @@ async def _openai_compat(base_url: str, key: str, model: str, prompt: str, *,
 
 
 async def _groq(prompt: str, json_mode: bool = False) -> str:
+    # max_tokens conta no TPM do Groq free (~6k): pedir 16k = rejeição imediata
     return await _openai_compat("https://api.groq.com/openai/v1", GROQ_KEY,
-                                GROQ_MODEL, prompt, json_mode=json_mode, name="groq")
+                                GROQ_MODEL, prompt, json_mode=json_mode, name="groq",
+                                max_tokens=4096)
 
 
 async def _hf_router(prompt: str, json_mode: bool = False) -> str:
@@ -334,9 +337,12 @@ async def _hf_router(prompt: str, json_mode: bool = False) -> str:
     errors: list[str] = []
     for model in HF_CHAT_MODELS:
         try:
+            # json_mode DESLIGADO de propósito: o response_format do router
+            # degenera a saída do Llama (todas as origens iguais); o prompt
+            # já exige JSON e o parse_json_loose tolera texto ao redor.
             return await _openai_compat("https://router.huggingface.co/v1", HF_TOKEN,
-                                        model, prompt, json_mode=json_mode,
-                                        name=f"hf-router[{model}]")
+                                        model, prompt, json_mode=False,
+                                        name=f"hf-router[{model}]", max_tokens=8192)
         except ProviderError as e:
             errors.append(str(e)[:160])
     raise ProviderError(" | ".join(errors))

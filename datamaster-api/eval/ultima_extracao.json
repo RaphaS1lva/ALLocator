@@ -1,0 +1,1093 @@
+{
+ "rows": [
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 3465.0,
+    "Controladora 31/12/2025": 5080.0,
+    "Consolidado 31/03/2026": 9720.0,
+    "Consolidado 31/12/2025": 21772.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 1505737.0,
+    "Controladora 31/12/2025": 1495042.0,
+    "Consolidado 31/03/2026": 2140485.0,
+    "Consolidado 31/12/2025": 2140619.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 1159608.0,
+    "Controladora 31/12/2025": 985633.0,
+    "Consolidado 31/03/2026": 2005869.0,
+    "Consolidado 31/12/2025": 1747166.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 66387.0,
+    "Controladora 31/12/2025": 79860.0,
+    "Consolidado 31/03/2026": 150818.0,
+    "Consolidado 31/12/2025": 180702.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 190930.0,
+    "Controladora 31/12/2025": 219564.0,
+    "Consolidado 31/03/2026": 219883.0,
+    "Consolidado 31/12/2025": 248153.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 57070.0,
+    "Controladora 31/12/2025": 57070.0,
+    "Consolidado 31/03/2026": 0.0,
+    "Consolidado 31/12/2025": 0.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 96881.0,
+    "Controladora 31/12/2025": 57515.0,
+    "Consolidado 31/03/2026": 123563.0,
+    "Consolidado 31/12/2025": 83053.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Circulante",
+   "isTotal": true,
+   "valores": {
+    "Controladora 31/03/2026": 3080078.0,
+    "Controladora 31/12/2025": 2899764.0,
+    "Consolidado 31/03/2026": 4650338.0,
+    "Consolidado 31/12/2025": 4421465.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 124453.0,
+    "Controladora 31/12/2025": 122859.0,
+    "Consolidado 31/03/2026": 116348.0,
+    "Consolidado 31/12/2025": 112622.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 0.0,
+    "Controladora 31/12/2025": 0.0,
+    "Consolidado 31/03/2026": 9635.0,
+    "Consolidado 31/12/2025": 9945.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 0.0,
+    "Controladora 31/12/2025": 0.0,
+    "Consolidado 31/03/2026": 8430.0,
+    "Consolidado 31/12/2025": 11058.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 11245.0,
+    "Controladora 31/12/2025": 11131.0,
+    "Consolidado 31/03/2026": 23546.0,
+    "Consolidado 31/12/2025": 19488.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 0.0,
+    "Controladora 31/12/2025": 0.0,
+    "Consolidado 31/03/2026": 7242.0,
+    "Consolidado 31/12/2025": 9532.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 31059.0,
+    "Controladora 31/12/2025": 33663.0,
+    "Consolidado 31/03/2026": 64134.0,
+    "Consolidado 31/12/2025": 67116.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Não Circulante",
+   "isTotal": true,
+   "valores": {
+    "Controladora 31/03/2026": 166757.0,
+    "Controladora 31/12/2025": 167653.0,
+    "Consolidado 31/03/2026": 229335.0,
+    "Consolidado 31/12/2025": 229761.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 4634484.0,
+    "Controladora 31/12/2025": 4509232.0,
+    "Consolidado 31/03/2026": 105850.0,
+    "Consolidado 31/12/2025": 111772.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 820787.0,
+    "Controladora 31/12/2025": 832547.0,
+    "Consolidado 31/03/2026": 1355204.0,
+    "Consolidado 31/12/2025": 1379255.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 2339262.0,
+    "Controladora 31/12/2025": 2385791.0,
+    "Consolidado 31/03/2026": 5905506.0,
+    "Consolidado 31/12/2025": 5979637.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 683633.0,
+    "Controladora 31/12/2025": 702708.0,
+    "Consolidado 31/03/2026": 1079421.0,
+    "Consolidado 31/12/2025": 1098591.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "Não Circulante",
+   "isTotal": true,
+   "valores": {
+    "Controladora 31/03/2026": 8644923.0,
+    "Controladora 31/12/2025": 8597931.0,
+    "Consolidado 31/03/2026": 8675316.0,
+    "Consolidado 31/12/2025": 8799016.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Ativo",
+   "subCategoria": "",
+   "isTotal": true,
+   "valores": {
+    "Controladora 31/03/2026": 11725001.0,
+    "Controladora 31/12/2025": 11497695.0,
+    "Consolidado 31/03/2026": 13325654.0,
+    "Consolidado 31/12/2025": 13220481.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 367000.0,
+    "Controladora 31/12/2025": 385681.0,
+    "Consolidado 31/03/2026": 733299.0,
+    "Consolidado 31/12/2025": 800133.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 7911.0,
+    "Controladora 31/12/2025": 14528.0,
+    "Consolidado 31/03/2026": 10818.0,
+    "Consolidado 31/12/2025": 17358.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 328970.0,
+    "Controladora 31/12/2025": 214745.0,
+    "Consolidado 31/03/2026": 328970.0,
+    "Consolidado 31/12/2025": 214745.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 178294.0,
+    "Controladora 31/12/2025": 190699.0,
+    "Consolidado 31/03/2026": 308319.0,
+    "Consolidado 31/12/2025": 318732.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 215038.0,
+    "Controladora 31/12/2025": 266482.0,
+    "Consolidado 31/03/2026": 345296.0,
+    "Consolidado 31/12/2025": 407632.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 40074.0,
+    "Controladora 31/12/2025": 27864.0,
+    "Consolidado 31/03/2026": 76505.0,
+    "Consolidado 31/12/2025": 59250.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 231.0,
+    "Controladora 31/12/2025": 12743.0,
+    "Consolidado 31/03/2026": 38280.0,
+    "Consolidado 31/12/2025": 0.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 5037.0,
+    "Controladora 31/12/2025": 30286.0,
+    "Consolidado 31/03/2026": 43467.0,
+    "Consolidado 31/12/2025": 79339.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 291110.0,
+    "Controladora 31/12/2025": 290621.0,
+    "Consolidado 31/03/2026": 293863.0,
+    "Consolidado 31/12/2025": 291836.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 7540.0,
+    "Controladora 31/12/2025": 7695.0,
+    "Consolidado 31/03/2026": 22476.0,
+    "Consolidado 31/12/2025": 18375.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Circulante",
+   "isTotal": true,
+   "valores": {
+    "Controladora 31/03/2026": 1440974.0,
+    "Controladora 31/12/2025": 1428832.0,
+    "Consolidado 31/03/2026": 2175756.0,
+    "Consolidado 31/12/2025": 2245680.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 0.0,
+    "Controladora 31/12/2025": 0.0,
+    "Consolidado 31/03/2026": 701.0,
+    "Consolidado 31/12/2025": 892.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 3797664.0,
+    "Controladora 31/12/2025": 3797474.0,
+    "Consolidado 31/03/2026": 3797664.0,
+    "Consolidado 31/12/2025": 3797474.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 595561.0,
+    "Controladora 31/12/2025": 603179.0,
+    "Consolidado 31/03/2026": 910562.0,
+    "Consolidado 31/12/2025": 922242.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 364334.0,
+    "Controladora 31/12/2025": 327705.0,
+    "Consolidado 31/03/2026": 555293.0,
+    "Consolidado 31/12/2025": 557540.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 23356.0,
+    "Controladora 31/12/2025": 27498.0,
+    "Consolidado 31/03/2026": 174320.0,
+    "Consolidado 31/12/2025": 180504.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 0.0,
+    "Controladora 31/12/2025": 0.0,
+    "Consolidado 31/03/2026": 850.0,
+    "Consolidado 31/12/2025": 850.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 249498.0,
+    "Controladora 31/12/2025": 240667.0,
+    "Consolidado 31/03/2026": 361874.0,
+    "Consolidado 31/12/2025": 348031.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Não Circulante",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 71000.0,
+    "Controladora 31/12/2025": 71000.0,
+    "Consolidado 31/03/2026": 71000.0,
+    "Consolidado 31/12/2025": 71000.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "Não Circulante",
+   "isTotal": true,
+   "valores": {
+    "Controladora 31/03/2026": 5101413.0,
+    "Controladora 31/12/2025": 5067523.0,
+    "Consolidado 31/03/2026": 5872264.0,
+    "Consolidado 31/12/2025": 5878533.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "PL",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 2736029.0,
+    "Controladora 31/12/2025": 2736029.0,
+    "Consolidado 31/03/2026": 2736029.0,
+    "Consolidado 31/12/2025": 2736029.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "PL",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 1915603.0,
+    "Controladora 31/12/2025": 1915603.0,
+    "Consolidado 31/03/2026": 1915603.0,
+    "Consolidado 31/12/2025": 1915603.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "PL",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 332450.0,
+    "Controladora 31/12/2025": 332450.0,
+    "Consolidado 31/03/2026": 332450.0,
+    "Consolidado 31/12/2025": 332450.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "PL",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": -55497.0,
+    "Controladora 31/12/2025": -35559.0,
+    "Consolidado 31/03/2026": -55497.0,
+    "Consolidado 31/12/2025": -35559.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "PL",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 52817.0,
+    "Controladora 31/12/2025": 52817.0,
+    "Consolidado 31/03/2026": 52817.0,
+    "Consolidado 31/12/2025": 52817.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "PL",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 201212.0,
+    "Controladora 31/12/2025": 0.0,
+    "Consolidado 31/03/2026": 201212.0,
+    "Consolidado 31/12/2025": 0.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "PL",
+   "isTotal": true,
+   "valores": {
+    "Controladora 31/03/2026": 5182614.0,
+    "Controladora 31/12/2025": 5001340.0,
+    "Consolidado 31/03/2026": 5182614.0,
+    "Consolidado 31/12/2025": 5001340.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "PL",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 0.0,
+    "Controladora 31/12/2025": 0.0,
+    "Consolidado 31/03/2026": 95020.0,
+    "Consolidado 31/12/2025": 94928.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "PL",
+   "isTotal": true,
+   "valores": {
+    "Controladora 31/03/2026": 5182614.0,
+    "Controladora 31/12/2025": 5001340.0,
+    "Consolidado 31/03/2026": 5277634.0,
+    "Consolidado 31/12/2025": 5096268.0
+   }
+  },
+  {
+   "origem": "Balanço Patrimonial",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 6,
+   "grupo": "Passivo",
+   "subCategoria": "",
+   "isTotal": true,
+   "valores": {
+    "Controladora 31/03/2026": 11725001.0,
+    "Controladora 31/12/2025": 11497695.0,
+    "Consolidado 31/03/2026": 13325654.0,
+    "Consolidado 31/12/2025": 13220481.0
+   }
+  },
+  {
+   "origem": "Receita de prestação de serviços",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 1302560.0,
+    "Controladora 31/12/2025": 1095153.0,
+    "Consolidado 31/03/2026": 2223118.0,
+    "Consolidado 31/12/2025": 2015073.0
+   }
+  },
+  {
+   "origem": "Custo dos serviços prestados",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": -907262.0,
+    "Controladora 31/12/2025": -751452.0,
+    "Consolidado 31/03/2026": -1595052.0,
+    "Consolidado 31/12/2025": -1442955.0
+   }
+  },
+  {
+   "origem": "Lucro Bruto",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": true,
+   "valores": {
+    "Controladora 31/03/2026": 395298.0,
+    "Controladora 31/12/2025": 343701.0,
+    "Consolidado 31/03/2026": 628066.0,
+    "Consolidado 31/12/2025": 572118.0
+   }
+  },
+  {
+   "origem": "Gerais e administrativas",
+   "hierarquia": "(Despesas) receitas operacionais",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": -123187.0,
+    "Controladora 31/12/2025": -115819.0,
+    "Consolidado 31/03/2026": -208138.0,
+    "Consolidado 31/12/2025": -196264.0
+   }
+  },
+  {
+   "origem": "Despesas comerciais",
+   "hierarquia": "(Despesas) receitas operacionais",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": -13452.0,
+    "Controladora 31/12/2025": -10312.0,
+    "Consolidado 31/03/2026": -46353.0,
+    "Consolidado 31/12/2025": -41781.0
+   }
+  },
+  {
+   "origem": "Outras receitas (despesas) operacionais, líquidas",
+   "hierarquia": "(Despesas) receitas operacionais",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": -714.0,
+    "Controladora 31/12/2025": 1647.0,
+    "Consolidado 31/03/2026": -700.0,
+    "Consolidado 31/12/2025": 1411.0
+   }
+  },
+  {
+   "origem": "Equivalência patrimonial e realização de valor justo",
+   "hierarquia": "(Despesas) receitas operacionais",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 68995.0,
+    "Controladora 31/12/2025": 66106.0,
+    "Consolidado 31/03/2026": -5062.0,
+    "Consolidado 31/12/2025": -2271.0
+   }
+  },
+  {
+   "origem": "Lucro operacional antes do resultado financeiro",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": true,
+   "valores": {
+    "Controladora 31/03/2026": 326940.0,
+    "Controladora 31/12/2025": 285323.0,
+    "Consolidado 31/03/2026": 367813.0,
+    "Consolidado 31/12/2025": 333213.0
+   }
+  },
+  {
+   "origem": "Receitas financeiras",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 57681.0,
+    "Controladora 31/12/2025": 62852.0,
+    "Consolidado 31/03/2026": 80815.0,
+    "Consolidado 31/12/2025": 79100.0
+   }
+  },
+  {
+   "origem": "Despesas financeiras",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": -173772.0,
+    "Controladora 31/12/2025": -162146.0,
+    "Consolidado 31/03/2026": -195875.0,
+    "Consolidado 31/12/2025": -182470.0
+   }
+  },
+  {
+   "origem": "Resultado financeiro",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": true,
+   "valores": {
+    "Controladora 31/03/2026": -116091.0,
+    "Controladora 31/12/2025": -99394.0,
+    "Consolidado 31/03/2026": -115060.0,
+    "Consolidado 31/12/2025": -103370.0
+   }
+  },
+  {
+   "origem": "Lucro antes do imposto de renda e da contribuição social",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": true,
+   "valores": {
+    "Controladora 31/03/2026": 210849.0,
+    "Controladora 31/12/2025": 186029.0,
+    "Consolidado 31/03/2026": 252753.0,
+    "Consolidado 31/12/2025": 229843.0
+   }
+  },
+  {
+   "origem": "Corrente",
+   "hierarquia": "Imposto de renda e contribuição social",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": -15910.0,
+    "Controladora 31/12/2025": -7315.0,
+    "Consolidado 31/03/2026": -54705.0,
+    "Consolidado 31/12/2025": -46840.0
+   }
+  },
+  {
+   "origem": "Diferido",
+   "hierarquia": "Imposto de renda e contribuição social",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 6273.0,
+    "Controladora 31/12/2025": 572.0,
+    "Consolidado 31/03/2026": -395.0,
+    "Consolidado 31/12/2025": -7173.0
+   }
+  },
+  {
+   "origem": "Lucro líquido do período",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": true,
+   "valores": {
+    "Controladora 31/03/2026": 201212.0,
+    "Controladora 31/12/2025": 179286.0,
+    "Consolidado 31/03/2026": 197653.0,
+    "Consolidado 31/12/2025": 175830.0
+   }
+  },
+  {
+   "origem": "Controladores",
+   "hierarquia": "Atribuível aos sócios",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 201212.0,
+    "Controladora 31/12/2025": 179286.0,
+    "Consolidado 31/03/2026": 201212.0,
+    "Consolidado 31/12/2025": 179286.0
+   }
+  },
+  {
+   "origem": "Não controladores",
+   "hierarquia": "Atribuível aos sócios",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 0.0,
+    "Controladora 31/12/2025": 0.0,
+    "Consolidado 31/03/2026": -3559.0,
+    "Consolidado 31/12/2025": -3456.0
+   }
+  },
+  {
+   "origem": "Resultado abrangente total do período",
+   "hierarquia": "Outros resultados abrangentes",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": true,
+   "valores": {
+    "Controladora 31/03/2026": 201212.0,
+    "Controladora 31/12/2025": 179286.0,
+    "Consolidado 31/03/2026": 197653.0,
+    "Consolidado 31/12/2025": 175830.0
+   }
+  },
+  {
+   "origem": "Lucro básico por ação (média ponderada)",
+   "hierarquia": "Lucro por ação atribuível aos acionistas da Companhia",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 0.37,
+    "Controladora 31/12/2025": 0.33,
+    "Consolidado 31/03/2026": 0.0,
+    "Consolidado 31/12/2025": 0.0
+   }
+  },
+  {
+   "origem": "Lucro diluído por ação (média ponderada)",
+   "hierarquia": "Lucro por ação atribuível aos acionistas da Companhia",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {
+    "Controladora 31/03/2026": 0.37,
+    "Controladora 31/12/2025": 0.33,
+    "Consolidado 31/03/2026": 0.0,
+    "Consolidado 31/12/2025": 0.0
+   }
+  }
+ ],
+ "meta": {
+  "anos": [
+   "Controladora 31/03/2026",
+   "Controladora 31/12/2025",
+   "Consolidado 31/03/2026",
+   "Consolidado 31/12/2025"
+  ],
+  "visoes": [
+   "Controladora",
+   "Consolidado"
+  ],
+  "unidade": "Mil",
+  "moeda": "BRL",
+  "isBalancete": false,
+  "paginas_bp": [
+   6
+  ],
+  "paginas_dre": [
+   7
+  ],
+  "paginas_com_falha": []
+ },
+ "provider": "hf-router",
+ "prompt_version": "v2.1-portal"
+}

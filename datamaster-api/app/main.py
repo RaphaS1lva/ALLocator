@@ -196,6 +196,15 @@ async def _extract_two_pass(data: bytes, mime: str, progress=_noop):
                 res = await complete_vision(prompt, png, "image/png", json_mode=True)
         parsed = parse_json_loose(res.text)
         rows = parsed.get("rows") or []
+        # PORTÃO por página: extração DEGENERADA (modelo repetindo a mesma
+        # origem — ex.: tudo "Balanço Patrimonial") vira falha RE-TENTÁVEL,
+        # nunca resultado. A 2ª varredura tenta de novo (outro provedor).
+        origens = [str(r.get("origem", "")).strip().lower() for r in rows]
+        if len(rows) >= 8 and len(set(origens)) <= max(2, len(rows) // 10):
+            raise ProviderError(
+                f"extração degenerada na página {pagina} "
+                f"({len(rows)} linhas, {len(set(origens))} origens distintas)",
+            )
         for r in rows:
             r["pagina"] = pagina
         return rows

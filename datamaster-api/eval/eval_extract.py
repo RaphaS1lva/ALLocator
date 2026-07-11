@@ -69,6 +69,9 @@ def main() -> None:
             sys.exit(1)
     rows = out["rows"]
     meta = out["meta"]
+    dump = Path(__file__).parent / "ultima_extracao.json"
+    dump.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"(extração bruta salva em {dump})")
     print(f"provider={out.get('provider')} | {len(rows)} linhas extraídas")
     print(f"períodos detectados: {meta.get('anos')}")
     print(f"bp={meta.get('paginas_bp')} dre={meta.get('paginas_dre')} falhas={meta.get('paginas_com_falha')}")
