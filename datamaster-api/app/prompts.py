@@ -112,9 +112,16 @@ Contas de patrimônio líquido: grupo "Passivo", subCategoria "PL".
 5. SUB CATEGORIA: "Circulante" | "Não Circulante" | "PL" | "DRE" quando \
 inferível; senão "".
 
+6. TOTAIS: linhas que são SOMA calculada de outras linhas ("Total \
+circulante", "Total do ativo", "Lucro Bruto", "Resultado financeiro", \
+"Lucro operacional...", "Total do patrimônio líquido", subtotais em geral) \
+devem vir com "isTotal": true — elas são capturadas como referência, mas \
+NUNCA são alocáveis (alocá-las dobraria os valores). Contas normais: false.
+
 Responda APENAS com JSON válido:
 {{"rows": [{{"origem": "...", "hierarquia": "", "codigo": "", \
-"grupo": "", "subCategoria": "", "valores": {{"2025": 123.45}}}}]}}
+"grupo": "", "subCategoria": "", "isTotal": false, \
+"valores": {{"2025": 123.45}}}}]}}
 
 TEXTO DA PÁGINA {pagina}:
 {texto}"""
@@ -141,9 +148,14 @@ código: 1=Ativo, 2=Passivo/PL, 3=Despesa->DRE, 4=Receita->DRE); senão "".
 4. SUB CATEGORIA: "Circulante" | "Não Circulante" | "PL" | "DRE" quando \
 inferível; senão "".
 
+5. TOTAIS: linhas que são SOMA calculada ("Total ...", "Lucro Bruto", \
+subtotais) devem vir com "isTotal": true — capturadas como referência, \
+nunca alocáveis.
+
 Responda APENAS com JSON válido:
 {{"rows": [{{"origem": "...", "hierarquia": "", "codigo": "", \
-"grupo": "", "subCategoria": "", "valores": {{"31/12/2025 Realizado": 123.0}}}}]}}"""
+"grupo": "", "subCategoria": "", "isTotal": false, \
+"valores": {{"31/12/2025 Realizado": 123.0}}}}]}}"""
 
 EXTRACT = """Você é um analista contábil sênior especializado em leitura de \
 demonstrações financeiras brasileiras (BP, DRE e balancetes).

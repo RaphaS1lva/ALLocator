@@ -62,7 +62,15 @@ HF_MODEL = os.getenv("HF_MODEL", "TucanoBR/Tucano-2b4-Instruct")
 # HF Inference ROUTER (OpenAI-compatível): serve modelos grandes (70B+) via
 # provedores parceiros, com créditos mensais gratuitos — entra na cascata
 # PRINCIPAL de texto (diferente do Tucano, que é só p/ texto simples).
-HF_CHAT_MODEL = os.getenv("HF_CHAT_MODEL", "meta-llama/Llama-3.3-70B-Instruct")
+# Lista CURADA (não-aleatória), tentada em ordem: modelos com capacidade
+# comprovada p/ extração estruturada em PT-BR. Editável via env.
+HF_CHAT_MODELS = [m.strip() for m in os.getenv(
+    "HF_CHAT_MODELS",
+    "meta-llama/Llama-3.3-70B-Instruct,"
+    "Qwen/Qwen2.5-72B-Instruct,"
+    "deepseek-ai/DeepSeek-V3",
+).split(",") if m.strip()]
+HF_CHAT_MODEL = HF_CHAT_MODELS[0]
 
 # ----------------------------------------------------------------------
 # Consumo por provedor (em memória; reinicia com o processo)
@@ -166,12 +174,12 @@ async def _gemini(prompt: str, *, file_bytes: bytes | None = None,
     if time.time() < _gemini_cooldown_until:
         raise ProviderError("gemini em cooldown (cota diária esgotada) — usando os demais provedores")
 
-    # Política de retentativa (Guia §4 do CustomGPT: "se a 1ª tentativa
-    # falhar, repetir ao menos 1 vez"): primário -> retry com backoff ->
-    # modelo reserva -> retry. 429/503 são transitórios; outros erros propagam.
-    plan = [(GEMINI_MODEL, 0.0), (GEMINI_MODEL, 4.0)]
+    # Retentativa ENXUTA (latência importa): primário -> modelo reserva.
+    # A resiliência de verdade vem da CASCATA de provedores; insistir muito
+    # num provedor instável só deixa a extração lenta.
+    plan = [(GEMINI_MODEL, 0.0)]
     if GEMINI_FALLBACK_MODEL and GEMINI_FALLBACK_MODEL != GEMINI_MODEL:
-        plan += [(GEMINI_FALLBACK_MODEL, 0.0), (GEMINI_FALLBACK_MODEL, 6.0)]
+        plan += [(GEMINI_FALLBACK_MODEL, 2.0)]
     last: ProviderError | None = None
     for model, wait in plan:
         if wait:
@@ -320,27 +328,28 @@ async def _groq(prompt: str, json_mode: bool = False) -> str:
 
 
 async def _hf_router(prompt: str, json_mode: bool = False) -> str:
-    """Hugging Face Inference Router — modelos grandes open-source (Llama 70B,
-    Qwen 72B…) via OpenAI-compat, com créditos mensais gratuitos do HF."""
-    return await _openai_compat("https://router.huggingface.co/v1", HF_TOKEN,
-                                HF_CHAT_MODEL, prompt, json_mode=json_mode,
-                                name="hf-router")
+    """Hugging Face Inference Router — modelos grandes open-source via
+    OpenAI-compat, com créditos mensais gratuitos. Tenta a lista CURADA em
+    ordem (determinística — nada de modelo aleatório)."""
+    errors: list[str] = []
+    for model in HF_CHAT_MODELS:
+        try:
+            return await _openai_compat("https://router.huggingface.co/v1", HF_TOKEN,
+                                        model, prompt, json_mode=json_mode,
+                                        name=f"hf-router[{model}]")
+        except ProviderError as e:
+            errors.append(str(e)[:160])
+    raise ProviderError(" | ".join(errors))
 
 
 async def _openrouter(prompt: str, *, images: list[tuple[str, str]] | None = None,
                       json_mode: bool = False) -> str:
     if not images:
-        # texto: modelo configurado -> "openrouter/free" (auto-roteia para
-        # QUALQUER modelo gratuito disponível no momento — anti-congestão)
-        errors_t: list[str] = []
-        for model in dict.fromkeys([OPENROUTER_MODEL, "openrouter/free"]):
-            try:
-                return await _openai_compat("https://openrouter.ai/api/v1", OPENROUTER_KEY,
-                                            model, prompt, json_mode=json_mode,
-                                            name=f"openrouter[{model}]")
-            except ProviderError as e:
-                errors_t.append(str(e)[:200])
-        raise ProviderError(" | ".join(errors_t))
+        # texto: apenas o modelo CONFIGURADO (nada de "openrouter/free"
+        # aleatório — qualidade imprevisível derruba a extração)
+        return await _openai_compat("https://openrouter.ai/api/v1", OPENROUTER_KEY,
+                                    OPENROUTER_MODEL, prompt, json_mode=json_mode,
+                                    name="openrouter")
     errors: list[str] = []
     for model in OPENROUTER_VISION_MODELS:
         try:
@@ -389,11 +398,12 @@ async def complete_text(prompt: str, *, json_mode: bool = False,
     chain = [
         ("gemini", lambda: _gemini(prompt, json_mode=json_mode)),
         ("groq", lambda: _groq(prompt, json_mode=json_mode)),
-        ("openrouter", lambda: _openrouter(prompt, json_mode=json_mode)),
     ]
     if HF_TOKEN:
-        # modelos grandes open-source do HF entram na cascata PRINCIPAL
+        # HF (lista curada de modelos 70B+) ANTES do OpenRouter :free, que
+        # congestiona com frequência — a tarefa TEM que terminar bem
         chain.append(("hf-router", lambda: _hf_router(prompt, json_mode=json_mode)))
+    chain.append(("openrouter", lambda: _openrouter(prompt, json_mode=json_mode)))
     if allow_small:
         chain.append(("hf", lambda: _hf(prompt)))
     for name, fn in chain:

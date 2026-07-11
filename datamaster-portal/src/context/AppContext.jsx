@@ -5,6 +5,14 @@ import React, {
 import { supabase, isSupabaseConfigured } from '../lib/supabaseClient.js';
 import { createRepo } from '../lib/repo.js';
 import { api, isApiConfigured } from '../lib/api.js';
+import { canonicalDestino, isValidDestino } from '../core/planoContas.js';
+
+/** Regra aprendida/memorizada só vale se o destino existir no plano de
+ * contas — protege contra poluição de análises antigas salvas com erro. */
+export function entradaValida(e) {
+  const d = canonicalDestino(e.destino, e.grupo, e.subCategoria);
+  return isValidDestino(d, e.grupo, e.subCategoria);
+}
 
 const Ctx = createContext(null);
 export const useApp = () => useContext(Ctx);
@@ -46,7 +54,10 @@ export function AppProvider({ children }) {
 
   // ---------- dicionário ----------
   const refreshDicionario = useCallback(async () => {
-    try { setDicionario(await repo.getDicionario()); } catch (e) { console.error(e); }
+    try {
+      const all = await repo.getDicionario();
+      setDicionario(all.filter(entradaValida));
+    } catch (e) { console.error(e); }
   }, [repo]);
 
   useEffect(() => { if (session) refreshDicionario(); }, [session, refreshDicionario]);

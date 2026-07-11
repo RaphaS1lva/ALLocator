@@ -283,13 +283,20 @@ async def _do_extract(data: bytes, mime: str, progress=_noop) -> dict:
                 valores[str(k)] = float(v)
             except (TypeError, ValueError):
                 continue
+        origem = str(r.get("origem", "")).strip()
+        # cinto e suspensório: mesmo se o LLM esquecer o isTotal, padrões
+        # óbvios de total/subtotal são marcados deterministicamente
+        e_total = bool(r.get("isTotal")) or bool(
+            re.match(r"^\s*(sub)?tota(l|is)\b", origem, re.IGNORECASE),
+        )
         clean.append({
-            "origem": str(r.get("origem", "")).strip(),
+            "origem": origem,
             "hierarquia": str(r.get("hierarquia", "")).strip(),
             "codigo": str(r.get("codigo", "")).strip(),
             "pagina": r.get("pagina"),
             "grupo": str(r.get("grupo", "")).strip(),
             "subCategoria": str(r.get("subCategoria", "")).strip(),
+            "isTotal": e_total,
             "valores": valores,
         })
     # PORTÃO DE QUALIDADE: extração de balanço sem valores numéricos é

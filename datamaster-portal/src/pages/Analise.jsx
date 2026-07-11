@@ -7,7 +7,7 @@ import React, {
   useEffect, useMemo, useRef, useState,
 } from 'react';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
-import { useApp } from '../context/AppContext.jsx';
+import { useApp, entradaValida } from '../context/AppContext.jsx';
 import { runPipeline } from '../core/index.js';
 import { CONTAS_ALOCAVEIS } from '../core/planoContas.js';
 import { coerceNumber, normalizeText } from '../core/normalize.js';
@@ -112,7 +112,8 @@ export default function Analise() {
     if (c) setHeader((h) => ({ ...h, empresa: c.nome, cnpj: c.cnpj || '', grupo: c.grupo || '' }));
     if (!clienteId && !header.cnpj) { setMemory([]); return; }
     repo.getCompanyMemory(clienteId || null, header.cnpj || null)
-      .then(setMemory).catch(() => setMemory([]));
+      .then((m) => setMemory(m.filter(entradaValida))) // ignora destinos inválidos de análises antigas
+      .catch(() => setMemory([]));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clienteId, clientes]);
 
@@ -175,19 +176,25 @@ export default function Analise() {
       setBusy('ia');
       setIaMsg('enviando o documento…');
       const out = await api.extract(file, setIaMsg);
-          // CAPTURA COMPLETA vem com os totalizadores (pais). Para evitar
-          // dupla contagem, quem aparece como pai de alguém entra como
-          // contexto (Alocação=Não) — o analista promove no clique se quiser
-          // consolidar (Regras §2/§5: nunca pai E filhos "Sim").
+          // CAPTURA COMPLETA vem com totalizadores. Dois tipos viram
+          // CONTEXTO (Alocação=Não) para não dobrar valores:
+          //  1. pais (origem que aparece como hierarquia de alguém);
+          //  2. linhas de TOTAL/SUBTOTAL do documento (isTotal — "Total do
+          //     ativo", "Lucro Bruto"…), que além de Não ganham noAuto:
+          //     nenhuma camada automática pode alocá-las (era a causa nº 1
+          //     do A ≠ P + PL: julgamental alocando "Total circulante").
           const pais = new Set((out.rows || [])
             .map((r) => String(r.hierarquia || '').trim().toLowerCase())
             .filter(Boolean));
+          const ehTotal = (r) => r.isTotal === true
+            || /^\s*(sub)?tota(l|is)\b/i.test(String(r.origem || ''));
           const mapped = (out.rows || []).map((r) => newRow({
             origem: r.origem || '', hierarquia: r.hierarquia || '', codigo: r.codigo || '',
             paginaReferencia: r.pagina != null ? String(r.pagina) : '',
             grupo: r.grupo || '', subCategoria: r.subCategoria || '',
             valores: r.valores || {},
-            alocacaoHierarquia: pais.has(String(r.origem || '').trim().toLowerCase()) ? 'Não' : 'Sim',
+            alocacaoHierarquia: (ehTotal(r) || pais.has(String(r.origem || '').trim().toLowerCase())) ? 'Não' : 'Sim',
+            noAuto: ehTotal(r),
           }));
           if (!mapped.length) throw new Error('A IA não encontrou contas no documento.');
           setRows(mapped);
