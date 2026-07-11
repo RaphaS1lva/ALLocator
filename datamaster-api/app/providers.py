@@ -188,7 +188,11 @@ async def _gemini(prompt: str, *, file_bytes: bytes | None = None,
             return await _gemini_once(model, body)
         except ProviderError as e:
             msg = str(e)
-            if " 429:" in msg and "current quota" in msg:
+            # Só cota DIÁRIA abre o cooldown longo. 429 de limite POR MINUTO
+            # (RPM/TPM) renova em ~60s — abrir cooldown de 10min para isso
+            # desligava nosso melhor provedor à toa.
+            diario = " 429:" in msg and ("PerDay" in msg or "per day" in msg or "daily" in msg.lower())
+            if diario:
                 _gemini_cooldown_until = time.time() + GEMINI_COOLDOWN_S
                 raise ProviderError(
                     "gemini: cota diária do free tier esgotada — cascata segue nos demais provedores",
@@ -323,11 +327,24 @@ async def _openai_compat(base_url: str, key: str, model: str, prompt: str, *,
         raise ProviderError(f"{name} resposta inesperada: {str(data)[:300]}") from e
 
 
+GROQ_FALLBACK_MODEL = os.getenv("GROQ_FALLBACK_MODEL", "llama-3.1-8b-instant")
+
+
 async def _groq(prompt: str, json_mode: bool = False) -> str:
-    # max_tokens conta no TPM do Groq free (~6k): pedir 16k = rejeição imediata
-    return await _openai_compat("https://api.groq.com/openai/v1", GROQ_KEY,
-                                GROQ_MODEL, prompt, json_mode=json_mode, name="groq",
-                                max_tokens=4096)
+    # max_tokens conta no TPM do Groq free (~6k): pedir 16k = rejeição imediata.
+    # Os limites do Groq são POR MODELO: quando o orçamento diário do 70B
+    # esgota, o 8b-instant tem verba separada (500k tokens/dia) — qualidade
+    # menor, mas o detector de degeneração barra resultado ruim.
+    try:
+        return await _openai_compat("https://api.groq.com/openai/v1", GROQ_KEY,
+                                    GROQ_MODEL, prompt, json_mode=json_mode, name="groq",
+                                    max_tokens=4096)
+    except ProviderError as e:
+        if " 429:" not in str(e) or not GROQ_FALLBACK_MODEL:
+            raise
+        return await _openai_compat("https://api.groq.com/openai/v1", GROQ_KEY,
+                                    GROQ_FALLBACK_MODEL, prompt, json_mode=json_mode,
+                                    name=f"groq[{GROQ_FALLBACK_MODEL}]", max_tokens=4096)
 
 
 async def _hf_router(prompt: str, json_mode: bool = False) -> str:

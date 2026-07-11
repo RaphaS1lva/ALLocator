@@ -65,7 +65,10 @@
       "Bash(git -c user.name=RaphaS1lva -c user.email=raphaelsilva73@gmail.com commit -q -m 'Eval: suporte ao protocolo de job assíncrono; ignora cache .vite *)",
       "PowerShell(Get-CimInstance Win32_Process -Filter \"Name='python.exe'\" | Where-Object { $_.CommandLine -match 'uvicorn' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }; Start-Sleep 1; Start-Process -FilePath \"python\" -ArgumentList \"-m\",\"uvicorn\",\"app.main:app\",\"--port\",\"8123\" -WorkingDirectory \"C:\\\\Users\\\\rapha\\\\Documents\\\\DataMaster\\\\datamaster-api\" -WindowStyle Hidden; Start-Sleep 4; \\(Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8123/health\\).Content.Substring\\(0,60\\))",
       "Bash(curl -s -m 6 http://127.0.0.1:8123/health)",
-      "Bash(curl -s -m 15 https://allocator-b6mj.onrender.com/extract/teste)"
+      "Bash(curl -s -m 15 https://allocator-b6mj.onrender.com/extract/teste)",
+      "PowerShell(Get-CimInstance Win32_Process -Filter \"Name='python.exe'\" | Where-Object { $_.CommandLine -match 'uvicorn' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }; Start-Sleep 1; Start-Process -FilePath \"python\" -ArgumentList \"-m\",\"uvicorn\",\"app.main:app\",\"--port\",\"8123\" -WorkingDirectory \"C:\\\\Users\\\\rapha\\\\Documents\\\\DataMaster\\\\datamaster-api\" -WindowStyle Hidden; Start-Sleep 6; \\(Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8123/health\\).StatusCode)",
+      "Bash(python -c \"import sys; sys.path.insert\\(0,'datamaster-api'\\); from app.main import app; print\\('ok'\\)\")",
+      "Bash(git -c user.name=RaphaS1lva -c user.email=raphaelsilva73@gmail.com commit -q -m 'Breaker só p/ cota diária \\(429/min renova em 60s\\) + Groq 8b-instant como verba reserva *)"
     ]
   }
 }
