@@ -37,7 +37,7 @@ from .providers import (
     pdf_page_texts,
     text_quality_ok,
 )
-from .reconcile import reconcile_page
+from .reconcile import detect_column_order, reconcile_page
 from .prompts import (
     EXTRACT, EXTRACT_PAGE, EXTRACT_PAGE_TEXT, IDENTIFY, IDENTIFY_TEXT,
     JULGAMENTAL, PARECER, PROMPT_VERSION,
@@ -170,6 +170,7 @@ async def _extract_two_pass(data: bytes, mime: str, progress=_noop):
     # dedupe preservando ordem (modelos fracos às vezes repetem rótulos)
     periodos = list(dict.fromkeys(str(x) for x in (ident.get("periodos") or [])))
     periodos_json = json.dumps(periodos, ensure_ascii=False) or '["valor"]'
+    visoes = [str(v) for v in (ident.get("visoes") or [])]
 
     # ---------- Passada 2: extração POR PÁGINA ----------
     # Texto embutido quando existe (números exatos, ~90% menos tokens e a
@@ -213,7 +214,13 @@ async def _extract_two_pass(data: bytes, mime: str, progress=_noop):
         # o LLM erra contagem de posição (traço no meio de 4 colunas); o
         # parser não erra. Números viram FATO, nunca "julgamento do modelo".
         if eh_texto:
-            page_cols = [p for p in periodos if any(p in (r.get("valores") or {}) for r in rows)]
+            # ordem REAL da página: lida do cabeçalho (visão + datas), nunca
+            # da lista GLOBAL de períodos — essa intercala BP e DRE e pode
+            # não bater com a ordem de uma página específica (bug real:
+            # trocava Consolidado por Controladora nas linhas da DRE)
+            page_cols = detect_column_order(texto, visoes, periodos)
+            if not page_cols:
+                page_cols = [p for p in periodos if any(p in (r.get("valores") or {}) for r in rows)]
             warn = reconcile_page(texto, rows, page_cols)
             if warn:
                 reconcile_warnings.extend(f"página {pagina}: {w}" for w in warn)

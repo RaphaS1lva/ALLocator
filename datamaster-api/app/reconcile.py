@@ -80,6 +80,43 @@ def _rest_after_label(line_tokens: list[str], origem_tokens: list[str]) -> list[
     return line_tokens[len(origem_tokens):]
 
 
+_DATE_RE = re.compile(r"\d{1,2}/\d{1,2}/\d{4}")
+
+
+def detect_column_order(page_text: str, visoes: list[str], periodos: list[str]) -> list[str] | None:
+    """Lê a ordem REAL das colunas direto do CABEÇALHO da página, em vez de
+    confiar na ordem da lista global de períodos (que intercala BP/DRE e
+    pode não bater com a ordem de UMA página específica — foi a causa de
+    valores de Consolidado saírem trocados com Controladora na DRE).
+
+    Padrão típico (2+ visões lado a lado): uma linha com os nomes das
+    visões ("Controladora Consolidado") seguida, em até 3 linhas, por uma
+    linha com as datas — o bloco de datas é dividido em partes iguais,
+    uma por visão, na MESMA ordem em que os nomes apareceram. Retorna None
+    se o padrão não for reconhecido (chamador usa um fallback).
+    """
+    if not visoes or len(visoes) < 2:
+        return None
+    lines = [ln.strip() for ln in page_text.splitlines() if ln.strip()]
+    for i, ln in enumerate(lines[:15]):  # cabeçalho fica no topo da página
+        achadas = [v for v in visoes if re.search(rf"(?<!\S){re.escape(v)}(?!\S)", ln)]
+        if len(achadas) < 2:
+            continue
+        for j in range(i, min(i + 3, len(lines))):
+            datas = _DATE_RE.findall(lines[j])
+            if len(datas) < len(achadas) or len(datas) % len(achadas) != 0:
+                continue
+            k = len(datas) // len(achadas)
+            order: list[str] = []
+            for vi, v in enumerate(achadas):
+                for d in datas[vi * k: (vi + 1) * k]:
+                    rotulo = next((p for p in periodos if v in p and d in p), f"{v} {d}")
+                    order.append(rotulo)
+            if len(order) == len(datas):
+                return order
+    return None
+
+
 def reconcile_page(page_text: str, rows: list[dict], column_order: list[str]) -> list[str]:
     """Sobrescreve `row["valores"]` de cada linha com o parser posicional
     determinístico, quando a linha original for localizada e tokenizada com
