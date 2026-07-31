@@ -2,7 +2,7 @@
  "rows": [
   {
    "origem": "Caixa e equivalentes de caixa",
-   "hierarquia": "Circulante",
+   "hierarquia": "Ativo",
    "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
@@ -17,8 +17,8 @@
   },
   {
    "origem": "Títulos e valores mobiliários",
-   "hierarquia": "Circulante",
-   "codigo": "5",
+   "hierarquia": "Ativo",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Circulante",
@@ -32,8 +32,8 @@
   },
   {
    "origem": "Contas a receber",
-   "hierarquia": "Circulante",
-   "codigo": "6",
+   "hierarquia": "Ativo",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Circulante",
@@ -47,8 +47,8 @@
   },
   {
    "origem": "Estoques",
-   "hierarquia": "Circulante",
-   "codigo": "7",
+   "hierarquia": "Ativo",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Circulante",
@@ -62,8 +62,8 @@
   },
   {
    "origem": "Impostos a recuperar",
-   "hierarquia": "Circulante",
-   "codigo": "8",
+   "hierarquia": "Ativo",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Circulante",
@@ -77,7 +77,7 @@
   },
   {
    "origem": "Dividendos a receber - Hermes Pardini",
-   "hierarquia": "Circulante",
+   "hierarquia": "Ativo",
    "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
@@ -90,8 +90,8 @@
   },
   {
    "origem": "Outros ativos",
-   "hierarquia": "Circulante",
-   "codigo": "9",
+   "hierarquia": "Ativo",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Circulante",
@@ -105,7 +105,7 @@
   },
   {
    "origem": "Total circulante",
-   "hierarquia": "",
+   "hierarquia": "Ativo",
    "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
@@ -120,8 +120,8 @@
   },
   {
    "origem": "Títulos e valores mobiliários",
-   "hierarquia": "Realizável a longo prazo",
-   "codigo": "5",
+   "hierarquia": "Ativo",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
@@ -135,8 +135,8 @@
   },
   {
    "origem": "Impostos a recuperar",
-   "hierarquia": "Realizável a longo prazo",
-   "codigo": "8",
+   "hierarquia": "Ativo",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
@@ -148,8 +148,8 @@
   },
   {
    "origem": "Imposto de renda e contribuição social diferidos",
-   "hierarquia": "Realizável a longo prazo",
-   "codigo": "20",
+   "hierarquia": "Ativo",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
@@ -161,8 +161,8 @@
   },
   {
    "origem": "Depósitos judiciais",
-   "hierarquia": "Realizável a longo prazo",
-   "codigo": "21",
+   "hierarquia": "Ativo",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
@@ -176,8 +176,8 @@
   },
   {
    "origem": "Contas a receber",
-   "hierarquia": "Realizável a longo prazo",
-   "codigo": "6",
+   "hierarquia": "Ativo",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
@@ -189,8 +189,8 @@
   },
   {
    "origem": "Outros ativos",
-   "hierarquia": "Realizável a longo prazo",
-   "codigo": "9",
+   "hierarquia": "Ativo",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
@@ -204,7 +204,7 @@
   },
   {
    "origem": "Total do realizável a longo prazo",
-   "hierarquia": "",
+   "hierarquia": "Ativo",
    "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
@@ -219,8 +219,8 @@
   },
   {
    "origem": "Investimentos",
-   "hierarquia": "",
-   "codigo": "10",
+   "hierarquia": "Ativo",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
@@ -234,8 +234,8 @@
   },
   {
    "origem": "Imobilizado",
-   "hierarquia": "",
-   "codigo": "11",
+   "hierarquia": "Ativo",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
@@ -249,8 +249,8 @@
   },
   {
    "origem": "Intangível",
-   "hierarquia": "",
-   "codigo": "11",
+   "hierarquia": "Ativo",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
@@ -264,8 +264,8 @@
   },
   {
    "origem": "Direito de uso",
-   "hierarquia": "",
-   "codigo": "12",
+   "hierarquia": "Ativo",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
@@ -279,7 +279,7 @@
   },
   {
    "origem": "Total não circulante",
-   "hierarquia": "",
+   "hierarquia": "Ativo",
    "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
@@ -309,8 +309,8 @@
   },
   {
    "origem": "Fornecedores",
-   "hierarquia": "Circulante",
-   "codigo": "13",
+   "hierarquia": "Passivo e Patrimônio Líquido",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -324,8 +324,8 @@
   },
   {
    "origem": "Financiamentos",
-   "hierarquia": "Circulante",
-   "codigo": "14",
+   "hierarquia": "Passivo e Patrimônio Líquido",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -339,8 +339,8 @@
   },
   {
    "origem": "Debêntures",
-   "hierarquia": "Circulante",
-   "codigo": "15",
+   "hierarquia": "Passivo e Patrimônio Líquido",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -354,8 +354,8 @@
   },
   {
    "origem": "Arrendamento",
-   "hierarquia": "Circulante",
-   "codigo": "12",
+   "hierarquia": "Passivo e Patrimônio Líquido",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -369,8 +369,8 @@
   },
   {
    "origem": "Obrigações trabalhistas",
-   "hierarquia": "Circulante",
-   "codigo": "16",
+   "hierarquia": "Passivo e Patrimônio Líquido",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -384,8 +384,8 @@
   },
   {
    "origem": "Obrigações e parcelamentos tributários",
-   "hierarquia": "Circulante",
-   "codigo": "17",
+   "hierarquia": "Passivo e Patrimônio Líquido",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -399,22 +399,22 @@
   },
   {
    "origem": "IRPJ e CSLL a recolher",
-   "hierarquia": "Circulante",
+   "hierarquia": "Passivo e Patrimônio Líquido",
    "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
    "isTotal": false,
    "valores": {
-    "Controladora 31/03/2026": 231.0,
-    "Controladora 31/12/2025": 12743.0,
-    "Consolidado 31/03/2026": 38280.0
+    "Controladora 31/12/2025": 231.0,
+    "Consolidado 31/03/2026": 12743.0,
+    "Consolidado 31/12/2025": 38280.0
    }
   },
   {
    "origem": "Contas a pagar - aquisições de empresas",
-   "hierarquia": "Circulante",
-   "codigo": "18",
+   "hierarquia": "Passivo e Patrimônio Líquido",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -428,8 +428,8 @@
   },
   {
    "origem": "Juros sobre capital próprio e dividendos a pagar",
-   "hierarquia": "Circulante",
-   "codigo": "23.c",
+   "hierarquia": "Passivo e Patrimônio Líquido",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -443,8 +443,8 @@
   },
   {
    "origem": "Outros passivos",
-   "hierarquia": "Circulante",
-   "codigo": "19",
+   "hierarquia": "Passivo e Patrimônio Líquido",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -458,7 +458,7 @@
   },
   {
    "origem": "Total circulante",
-   "hierarquia": "",
+   "hierarquia": "Passivo e Patrimônio Líquido",
    "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
@@ -473,8 +473,8 @@
   },
   {
    "origem": "Financiamentos",
-   "hierarquia": "Não circulante",
-   "codigo": "14",
+   "hierarquia": "Passivo e Patrimônio Líquido",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Não Circulante",
@@ -486,8 +486,8 @@
   },
   {
    "origem": "Debêntures",
-   "hierarquia": "Não circulante",
-   "codigo": "15",
+   "hierarquia": "Passivo e Patrimônio Líquido",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Não Circulante",
@@ -501,8 +501,8 @@
   },
   {
    "origem": "Arrendamento",
-   "hierarquia": "Não circulante",
-   "codigo": "12",
+   "hierarquia": "Passivo e Patrimônio Líquido",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Não Circulante",
@@ -516,8 +516,8 @@
   },
   {
    "origem": "Imposto de renda e contribuição social diferidos",
-   "hierarquia": "Não circulante",
-   "codigo": "20",
+   "hierarquia": "Passivo e Patrimônio Líquido",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Não Circulante",
@@ -531,8 +531,8 @@
   },
   {
    "origem": "Provisão para riscos tributários, trabalhistas e cíveis",
-   "hierarquia": "Não circulante",
-   "codigo": "21",
+   "hierarquia": "Passivo e Patrimônio Líquido",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Não Circulante",
@@ -546,8 +546,8 @@
   },
   {
    "origem": "Obrigações tributárias",
-   "hierarquia": "Não circulante",
-   "codigo": "17",
+   "hierarquia": "Passivo e Patrimônio Líquido",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Não Circulante",
@@ -559,8 +559,8 @@
   },
   {
    "origem": "Contas a pagar - aquisições de empresas",
-   "hierarquia": "Não circulante",
-   "codigo": "18",
+   "hierarquia": "Passivo e Patrimônio Líquido",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Não Circulante",
@@ -574,8 +574,8 @@
   },
   {
    "origem": "Dividendos a pagar",
-   "hierarquia": "Não circulante",
-   "codigo": "23.c",
+   "hierarquia": "Passivo e Patrimônio Líquido",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Não Circulante",
@@ -589,7 +589,7 @@
   },
   {
    "origem": "Total não circulante",
-   "hierarquia": "",
+   "hierarquia": "Passivo e Patrimônio Líquido",
    "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
@@ -605,7 +605,7 @@
   {
    "origem": "Capital social",
    "hierarquia": "Patrimônio líquido",
-   "codigo": "23 a.",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "PL",
@@ -650,7 +650,7 @@
   {
    "origem": "Ações em tesouraria",
    "hierarquia": "Patrimônio líquido",
-   "codigo": "23.d",
+   "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "PL",
@@ -692,7 +692,7 @@
   },
   {
    "origem": "Patrimônio líquido dos controladores",
-   "hierarquia": "",
+   "hierarquia": "Patrimônio líquido",
    "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
@@ -707,7 +707,7 @@
   },
   {
    "origem": "Participação de não controladores",
-   "hierarquia": "",
+   "hierarquia": "Patrimônio líquido",
    "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
@@ -720,7 +720,7 @@
   },
   {
    "origem": "Total do patrimônio líquido",
-   "hierarquia": "",
+   "hierarquia": "Passivo e Patrimônio Líquido",
    "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
@@ -792,16 +792,6 @@
     "Consolidado 31/03/2026": 628066.0,
     "Consolidado 31/03/2025": 572118.0
    }
-  },
-  {
-   "origem": "(Despesas) receitas operacionais",
-   "hierarquia": "",
-   "codigo": "",
-   "pagina": 7,
-   "grupo": "DRE",
-   "subCategoria": "",
-   "isTotal": false,
-   "valores": {}
   },
   {
    "origem": "Gerais e administrativas",
@@ -939,16 +929,6 @@
    }
   },
   {
-   "origem": "Imposto de renda e contribuição social",
-   "hierarquia": "",
-   "codigo": "",
-   "pagina": 7,
-   "grupo": "DRE",
-   "subCategoria": "",
-   "isTotal": false,
-   "valores": {}
-  },
-  {
    "origem": "Corrente",
    "hierarquia": "Imposto de renda e contribuição social",
    "codigo": "",
@@ -994,18 +974,8 @@
    }
   },
   {
-   "origem": "Atribuível aos sócios:",
-   "hierarquia": "",
-   "codigo": "",
-   "pagina": 7,
-   "grupo": "DRE",
-   "subCategoria": "",
-   "isTotal": false,
-   "valores": {}
-  },
-  {
    "origem": "Controladores",
-   "hierarquia": "Atribuível aos sócios:",
+   "hierarquia": "Atribuível aos sócios",
    "codigo": "",
    "pagina": 7,
    "grupo": "DRE",
@@ -1020,7 +990,7 @@
   },
   {
    "origem": "Não controladores",
-   "hierarquia": "Atribuível aos sócios:",
+   "hierarquia": "Atribuível aos sócios",
    "codigo": "",
    "pagina": 7,
    "grupo": "DRE",
@@ -1033,7 +1003,7 @@
   },
   {
    "origem": "Total atribuível aos sócios",
-   "hierarquia": "Atribuível aos sócios:",
+   "hierarquia": "Atribuível aos sócios",
    "codigo": "",
    "pagina": 7,
    "grupo": "DRE",
@@ -1045,16 +1015,6 @@
     "Consolidado 31/03/2026": 197653.0,
     "Consolidado 31/03/2025": 175830.0
    }
-  },
-  {
-   "origem": "Outros resultados abrangentes",
-   "hierarquia": "",
-   "codigo": "",
-   "pagina": 7,
-   "grupo": "DRE",
-   "subCategoria": "",
-   "isTotal": false,
-   "valores": {}
   },
   {
    "origem": "Resultado abrangente total do período",
@@ -1070,16 +1030,6 @@
     "Consolidado 31/03/2026": 197653.0,
     "Consolidado 31/03/2025": 175830.0
    }
-  },
-  {
-   "origem": "Lucro por ação atribuível aos acionistas da Companhia",
-   "hierarquia": "",
-   "codigo": "",
-   "pagina": 7,
-   "grupo": "DRE",
-   "subCategoria": "",
-   "isTotal": false,
-   "valores": {}
   },
   {
    "origem": "Lucro básico por ação (média ponderada)",
@@ -1130,7 +1080,12 @@
   "paginas_dre": [
    7
   ],
-  "paginas_com_falha": []
+  "paginas_com_falha": [],
+  "linhas_nao_reconciliadas": [
+   "página 7: \"Total atribuível aos sócios\": linha não localizada no texto — mantidos valores do LLM",
+   "página 7: \"Lucro básico por ação (média ponderada)\": 3 token(s) após o rótulo, esperado(s) >= 4 — mantidos valores do LLM",
+   "página 7: \"Lucro diluído por ação (média ponderada)\": 3 token(s) após o rótulo, esperado(s) >= 4 — mantidos valores do LLM"
+  ]
  },
  "provider": "gemini",
  "prompt_version": "v2.1-portal"
