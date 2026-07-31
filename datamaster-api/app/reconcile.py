@@ -167,3 +167,58 @@ def reconcile_page(page_text: str, rows: list[dict], column_order: list[str]) ->
         row["valores"] = valores  # número é fato, não julgamento — SOBRESCREVE o LLM
 
     return warnings
+
+
+def flag_computed_totals(rows: list[dict], columns: list[str], tol: float = 0.6) -> int:
+    """Marca `row["isTotal"]=True` para qualquer linha cujo valor bata
+    ARITMETICAMENTE com a soma de um bloco de linhas imediatamente
+    anteriores — mesmo sem a palavra "Total" no nome.
+
+    Por quê: a extração já pega totais ÓBVIOS pelo rótulo ("Total
+    circulante", regex "^tota(l|is)"), mas demonstrações reais têm
+    subtotais SEM esse rótulo (ex.: "Patrimônio líquido dos
+    controladores" = Capital + Reservas + Ações em tesouraria + ... +
+    Lucro do período). Uma linha assim, não marcada, pode ser roteada
+    pelo julgamental para um destino comum (ex.: "Outras Reservas"),
+    somando de novo componentes já alocados individualmente — dobra o
+    Patrimônio Líquido inteiro (foi exatamente o bug real observado).
+
+    Mesmo princípio do módulo inteiro: estrutura vira código, não rótulo.
+    Muta `rows` in-place (mantém a ordem = ordem de leitura do documento).
+    Retorna quantas linhas foram marcadas.
+    """
+    cols = [c for c in columns
+            if sum(1 for r in rows if c in (r.get("valores") or {})) >= 2]
+    if not cols:
+        return 0
+
+    pendentes: list[dict] = []  # componentes ainda não "consumidos" por um total
+    marcadas = 0
+    for row in rows:
+        vals = row.get("valores") or {}
+        comuns = [c for c in cols if c in vals]
+        if row.get("isTotal"):
+            pendentes.append(row)  # um total já marcado pode compor um total maior
+            continue
+        if len(comuns) >= 2 and pendentes:
+            achou = None
+            for start in range(len(pendentes) - 1, -1, -1):  # janelas menores primeiro
+                somas = {}
+                ok = True
+                for c in comuns:
+                    s = sum((pendentes[k].get("valores") or {}).get(c, 0.0) for k in range(start, len(pendentes)))
+                    somas[c] = s
+                    if abs(s - vals[c]) > max(tol, abs(vals[c]) * 0.0005):
+                        ok = False
+                        break
+                if ok and (len(pendentes) - start) >= 2:
+                    achou = start
+                    break
+            if achou is not None:
+                row["isTotal"] = True
+                marcadas += 1
+                del pendentes[achou:]
+                pendentes.append(row)
+                continue
+        pendentes.append(row)
+    return marcadas

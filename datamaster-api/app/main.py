@@ -37,7 +37,7 @@ from .providers import (
     pdf_page_texts,
     text_quality_ok,
 )
-from .reconcile import detect_column_order, reconcile_page
+from .reconcile import detect_column_order, flag_computed_totals, reconcile_page
 from .prompts import (
     EXTRACT, EXTRACT_PAGE, EXTRACT_PAGE_TEXT, IDENTIFY, IDENTIFY_TEXT,
     JULGAMENTAL, PARECER, PROMPT_VERSION,
@@ -224,6 +224,12 @@ async def _extract_two_pass(data: bytes, mime: str, progress=_noop):
             warn = reconcile_page(texto, rows, page_cols)
             if warn:
                 reconcile_warnings.extend(f"página {pagina}: {w}" for w in warn)
+            # totais SEM a palavra "Total" no nome (ex.: "Patrimônio líquido
+            # dos controladores") escapam do rótulo — aqui a aritmética
+            # decide: bateu com a soma das linhas anteriores = é total,
+            # nunca alocável (evita dobrar o PL via julgamental, bug real
+            # já visto em produção)
+            flag_computed_totals(rows, page_cols)
 
         for r in rows:
             r["pagina"] = pagina
