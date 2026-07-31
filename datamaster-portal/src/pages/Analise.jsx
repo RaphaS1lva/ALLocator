@@ -217,6 +217,12 @@ export default function Analise() {
           if (falhas.length) {
             toast(`Atenção: ${falhas.length} página(s) não puderam ser extraídas (${falhas.map((f) => String(f).split(':')[0]).join('; ')}). Reimporte em alguns minutos ou complete manualmente.`, 'error');
           }
+          // Números vêm de parser determinístico (não do "julgamento" do LLM);
+          // só nas linhas listadas aqui isso não foi possível — confira-as.
+          const naoReconc = out.meta?.linhas_nao_reconciliadas || [];
+          if (naoReconc.length) {
+            toast(`Confira os valores de ${naoReconc.length} linha(s) — a leitura determinística não confirmou (${naoReconc.slice(0, 2).join('; ')}${naoReconc.length > 2 ? '…' : ''}).`, 'error');
+          }
           setConfirm({ bp: 'A', dre: 'A', periodos: 'A', unidade: 'A', ll: 'A' });
           const pgBp = (out.meta?.paginas_bp || []).map(String);
           const pgDre = (out.meta?.paginas_dre || []).map(String);

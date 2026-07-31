@@ -37,6 +37,7 @@ from .providers import (
     pdf_page_texts,
     text_quality_ok,
 )
+from .reconcile import reconcile_page
 from .prompts import (
     EXTRACT, EXTRACT_PAGE, EXTRACT_PAGE_TEXT, IDENTIFY, IDENTIFY_TEXT,
     JULGAMENTAL, PARECER, PROMPT_VERSION,
@@ -178,12 +179,14 @@ async def _extract_two_pass(data: bytes, mime: str, progress=_noop):
     images = pdf_page_images(data, paginas_img) if paginas_img else {}
 
     sem = asyncio.Semaphore(PAGE_CONCURRENCY)
+    reconcile_warnings: list[str] = []
 
     async def one(pagina: int):
         texto = page_texts[pagina - 1] if 1 <= pagina <= len(page_texts) else ""
+        eh_texto = text_quality_ok(texto)
         progress(f"extraindo página {pagina} ({len(paginas)} no total)…")
         async with sem:
-            if text_quality_ok(texto):
+            if eh_texto:
                 prompt = EXTRACT_PAGE_TEXT.format(
                     pagina=pagina, periodos=periodos_json, texto=texto[:16000],
                 )
@@ -205,6 +208,16 @@ async def _extract_two_pass(data: bytes, mime: str, progress=_noop):
                 f"extração degenerada na página {pagina} "
                 f"({len(rows)} linhas, {len(set(origens))} origens distintas)",
             )
+
+        # RECONCILIAÇÃO DETERMINÍSTICA (só é possível com texto embutido):
+        # o LLM erra contagem de posição (traço no meio de 4 colunas); o
+        # parser não erra. Números viram FATO, nunca "julgamento do modelo".
+        if eh_texto:
+            page_cols = [p for p in periodos if any(p in (r.get("valores") or {}) for r in rows)]
+            warn = reconcile_page(texto, rows, page_cols)
+            if warn:
+                reconcile_warnings.extend(f"página {pagina}: {w}" for w in warn)
+
         for r in rows:
             r["pagina"] = pagina
         return rows
@@ -251,6 +264,10 @@ async def _extract_two_pass(data: bytes, mime: str, progress=_noop):
         "paginas_bp": ident.get("paginas_bp") or [],
         "paginas_dre": ident.get("paginas_dre") or [],
         "paginas_com_falha": falhas,
+        # linhas onde o parser DETERMINÍSTICO não conseguiu reconciliar (raro:
+        # rótulo do LLM não bateu com a linha original) — nessas, e SÓ nessas,
+        # o valor ainda vem do julgamento do LLM, sem a garantia de código.
+        "linhas_nao_reconciliadas": reconcile_warnings,
     }
     return {"rows": all_rows, "meta": meta, "provider": ident_res.provider}
 
