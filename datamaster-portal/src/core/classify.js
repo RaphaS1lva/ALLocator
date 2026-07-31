@@ -44,19 +44,36 @@ export function isPlSpecific(name) {
 
 /**
  * apply_special_classification_rules (py L282-302):
- * - se origem OU destino e PL-especifica -> Grupo=Passivo, Sub=PL
+ * - se origem e PL-especifica -> Grupo=Passivo, Sub=PL (fato do documento,
+ *   sempre seguro: o NOME da origem nao muda de um recalculo pro outro)
+ * - se destino e PL-especifica -> idem, MAS só quando o grupo da linha
+ *   ainda não é conhecido (vazio) ou já é Passivo — nunca sobrescreve um
+ *   grupo JÁ determinado como Ativo/DRE só porque o destino (de um match
+ *   anterior — memória antiga, sessão anterior, julgamental — possivelmente
+ *   ERRADO) é uma conta de PL. Sem essa guarda, uma linha de DRE
+ *   mal-casada UMA ÚNICA VEZ "se legitima" sozinha em todo recalculo
+ *   seguinte (grupo passa a "concordar" com o destino errado, e a regra
+ *   absoluta "DRE só pode ir para DRE" deixa de barrar o re-match — bug
+ *   real observado em produção: "Controladores"/"Não controladores" da
+ *   DRE presos em "PARTICIPAÇÕES MINORITÁRIAS" mesmo após a extração já
+ *   vir com grupo=DRE correto do servidor).
  * - se grupo canoniza para DRE -> Grupo=DRE, Sub=DRE
  * Recebe e devolve um objeto {origem, destino, grupo, subCategoria}.
  */
 export function applySpecialClassification(row) {
   const r = { ...row };
-  if (isPlSpecific(r.origem) || isPlSpecific(r.destino)) {
+  if (isPlSpecific(r.origem)) {
     r.grupo = 'Passivo';
     r.subCategoria = 'PL';
     return r;
   }
-  const g = normalizeGroup(r.grupo);
-  if (g === 'DRE') {
+  const gAtual = normalizeGroup(r.grupo);
+  if (isPlSpecific(r.destino) && (!gAtual || gAtual === 'Passivo')) {
+    r.grupo = 'Passivo';
+    r.subCategoria = 'PL';
+    return r;
+  }
+  if (gAtual === 'DRE') {
     r.grupo = 'DRE';
     r.subCategoria = 'DRE';
   }
