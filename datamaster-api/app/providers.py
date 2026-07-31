@@ -327,24 +327,32 @@ async def _openai_compat(base_url: str, key: str, model: str, prompt: str, *,
         raise ProviderError(f"{name} resposta inesperada: {str(data)[:300]}") from e
 
 
-GROQ_FALLBACK_MODEL = os.getenv("GROQ_FALLBACK_MODEL", "llama-3.1-8b-instant")
+# Reservas do Groq, tentadas em ordem quando o modelo principal esgota a
+# verba diária. Os limites do Groq são POR MODELO (orçamentos separados!):
+#   1. Kimi K2 (Moonshot) — modelo de fronteira open-source, ótimo em
+#      extração estruturada; verba própria no free tier do Groq
+#   2. llama-3.1-8b-instant — verba grande (500k tok/dia); qualidade menor,
+#      mas o detector de degeneração barra resultado ruim
+GROQ_FALLBACK_MODELS = [m.strip() for m in os.getenv(
+    "GROQ_FALLBACK_MODELS",
+    "moonshotai/kimi-k2-instruct,llama-3.1-8b-instant",
+).split(",") if m.strip()]
 
 
 async def _groq(prompt: str, json_mode: bool = False) -> str:
     # max_tokens conta no TPM do Groq free (~6k): pedir 16k = rejeição imediata.
-    # Os limites do Groq são POR MODELO: quando o orçamento diário do 70B
-    # esgota, o 8b-instant tem verba separada (500k tokens/dia) — qualidade
-    # menor, mas o detector de degeneração barra resultado ruim.
-    try:
-        return await _openai_compat("https://api.groq.com/openai/v1", GROQ_KEY,
-                                    GROQ_MODEL, prompt, json_mode=json_mode, name="groq",
-                                    max_tokens=4096)
-    except ProviderError as e:
-        if " 429:" not in str(e) or not GROQ_FALLBACK_MODEL:
-            raise
-        return await _openai_compat("https://api.groq.com/openai/v1", GROQ_KEY,
-                                    GROQ_FALLBACK_MODEL, prompt, json_mode=json_mode,
-                                    name=f"groq[{GROQ_FALLBACK_MODEL}]", max_tokens=4096)
+    errors: list[str] = []
+    for model in [GROQ_MODEL, *GROQ_FALLBACK_MODELS]:
+        try:
+            return await _openai_compat("https://api.groq.com/openai/v1", GROQ_KEY,
+                                        model, prompt, json_mode=json_mode,
+                                        name=f"groq[{model}]" if model != GROQ_MODEL else "groq",
+                                        max_tokens=4096)
+        except ProviderError as e:
+            errors.append(str(e)[:160])
+            if " 429:" not in str(e) and " 404:" not in str(e):
+                raise  # erro que não é cota/slug: não adianta trocar de modelo
+    raise ProviderError(" | ".join(errors))
 
 
 async def _hf_router(prompt: str, json_mode: bool = False) -> str:
