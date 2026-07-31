@@ -102,10 +102,21 @@ colunas que os rótulos, use apenas as chaves das colunas presentes.
 3. COLUNA "Nota": muitas demonstrações têm uma coluna de número da nota \
 explicativa (ex.: 5, 12, 23.c) entre o nome da conta e os valores — ela \
 NÃO é valor: ignore-a completamente.
-3b. ALINHAMENTO POSICIONAL: em cada linha, os valores seguem a ORDEM das \
-colunas do cabeçalho. Um "-" OCUPA a posição da sua coluna — conte as \
-posições para NÃO deslocar os valores seguintes. Ex.: colunas [A, B, C, D] \
-e linha "Conta X - 231 12.743 38.280" -> A=omitida, B=231, C=12743, D=38280.
+3b. ALINHAMENTO POSICIONAL (regra crítica — a causa mais comum de erro): \
+em cada linha, cada NÚMERO OU TRAÇO é um token que ocupa UMA posição de \
+coluna, na mesma ordem em que os rótulos de período aparecem no \
+cabeçalho — NUNCA pule um traço, NUNCA junte dois tokens, NUNCA invente \
+ou omita um valor real. Antes de responder, CONTE os tokens da linha: o \
+total deve ser igual ao número de colunas de período visíveis nesta \
+página. Exemplo real (4 colunas: Controladora atual, Controladora \
+comparativo, Consolidado atual, Consolidado comparativo): linha \
+"IRPJ e CSLL a recolher    -    231    12.743    38.280" tem 4 tokens \
+("-", "231", "12.743", "38.280") para 4 colunas → mapeamento 1-para-1: \
+Controladora atual = (sem valor, "-" omite a chave), Controladora \
+comparativo = 231, Consolidado atual = 12.743, Consolidado \
+comparativo = 38.280. ERRO COMUM a evitar: pular o "-" e deslocar tudo \
+uma posição à esquerda (isso faria 38.280 "vazar" para a coluna errada \
+e perder o 12.743) — não faça isso.
 4. GRUPO: "Ativo" | "Passivo" | "DRE" quando claro (seção ou 1º dígito do \
 código: 1=Ativo, 2=Passivo/PL, 3=Despesa->DRE, 4=Receita->DRE); senão "". \
 Contas de patrimônio líquido: grupo "Passivo", subCategoria "PL".

@@ -9,10 +9,23 @@ import {
 } from './hierarchy.js';
 import { groupSubOrder, destinationOrder } from './planoContas.js';
 
-/** Ordena anos como numero quando possivel (py sort_year_key L147-152). */
+/**
+ * Ordena anos cronologicamente (py sort_year_key L147-152), mesmo quando o
+ * rotulo combina visao + data (ex.: "Consolidado 31/03/2026" ou "30/04/2026
+ * Orcado"). parseInt() sozinho falha nesses rotulos compostos e cai num
+ * fallback de STRING que ordena "31/12/2025" antes de "31/03/2026" (12 > 03
+ * alfabeticamente), quebrando a regra "Ano 3 = mais recente".
+ */
 function yearKey(y) {
-  const n = parseInt(String(y).trim(), 10);
-  return Number.isNaN(n) ? [1, String(y)] : [0, n];
+  const s = String(y).trim();
+  if (/^\d{4}$/.test(s)) return [0, parseInt(s, 10) * 10000]; // "2023"
+  const dmy = s.match(/\b(\d{1,2})\/(\d{1,2})\/(\d{4})\b/); // DD/MM/AAAA
+  if (dmy) return [0, parseInt(dmy[3], 10) * 10000 + parseInt(dmy[2], 10) * 100 + parseInt(dmy[1], 10)];
+  const ymd = s.match(/\b(\d{4})-(\d{1,2})-(\d{1,2})\b/); // AAAA-MM-DD
+  if (ymd) return [0, parseInt(ymd[1], 10) * 10000 + parseInt(ymd[2], 10) * 100 + parseInt(ymd[3], 10)];
+  const anos = [...s.matchAll(/\b(19|20)\d{2}\b/g)]; // qualquer ano de 4 digitos no rotulo
+  if (anos.length) return [0, parseInt(anos[anos.length - 1][0], 10) * 10000];
+  return [1, s]; // fallback: string pura (nunca deveria ocorrer com rotulos do sistema)
 }
 
 /**
