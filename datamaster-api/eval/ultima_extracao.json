@@ -2,7 +2,7 @@
  "rows": [
   {
    "origem": "Caixa e equivalentes de caixa",
-   "hierarquia": "Ativo Circulante",
+   "hierarquia": "Circulante",
    "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
@@ -17,8 +17,8 @@
   },
   {
    "origem": "Títulos e valores mobiliários",
-   "hierarquia": "Ativo Circulante",
-   "codigo": "",
+   "hierarquia": "Circulante",
+   "codigo": "5",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Circulante",
@@ -32,8 +32,8 @@
   },
   {
    "origem": "Contas a receber",
-   "hierarquia": "Ativo Circulante",
-   "codigo": "",
+   "hierarquia": "Circulante",
+   "codigo": "6",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Circulante",
@@ -47,8 +47,8 @@
   },
   {
    "origem": "Estoques",
-   "hierarquia": "Ativo Circulante",
-   "codigo": "",
+   "hierarquia": "Circulante",
+   "codigo": "7",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Circulante",
@@ -62,8 +62,8 @@
   },
   {
    "origem": "Impostos a recuperar",
-   "hierarquia": "Ativo Circulante",
-   "codigo": "",
+   "hierarquia": "Circulante",
+   "codigo": "8",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Circulante",
@@ -77,7 +77,7 @@
   },
   {
    "origem": "Dividendos a receber - Hermes Pardini",
-   "hierarquia": "Ativo Circulante",
+   "hierarquia": "Circulante",
    "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
@@ -85,15 +85,13 @@
    "isTotal": false,
    "valores": {
     "Controladora 31/03/2026": 57070.0,
-    "Controladora 31/12/2025": 57070.0,
-    "Consolidado 31/03/2026": 0.0,
-    "Consolidado 31/12/2025": 0.0
+    "Controladora 31/12/2025": 57070.0
    }
   },
   {
    "origem": "Outros ativos",
-   "hierarquia": "Ativo Circulante",
-   "codigo": "",
+   "hierarquia": "Circulante",
+   "codigo": "9",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Circulante",
@@ -107,7 +105,7 @@
   },
   {
    "origem": "Total circulante",
-   "hierarquia": "Ativo",
+   "hierarquia": "",
    "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
@@ -122,8 +120,8 @@
   },
   {
    "origem": "Títulos e valores mobiliários",
-   "hierarquia": "Ativo Não Circulante",
-   "codigo": "",
+   "hierarquia": "Realizável a longo prazo",
+   "codigo": "5",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
@@ -137,38 +135,34 @@
   },
   {
    "origem": "Impostos a recuperar",
-   "hierarquia": "Ativo Não Circulante",
-   "codigo": "",
+   "hierarquia": "Realizável a longo prazo",
+   "codigo": "8",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
    "isTotal": false,
    "valores": {
-    "Controladora 31/03/2026": 0.0,
-    "Controladora 31/12/2025": 0.0,
     "Consolidado 31/03/2026": 9635.0,
     "Consolidado 31/12/2025": 9945.0
    }
   },
   {
    "origem": "Imposto de renda e contribuição social diferidos",
-   "hierarquia": "Ativo Não Circulante",
-   "codigo": "",
+   "hierarquia": "Realizável a longo prazo",
+   "codigo": "20",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
    "isTotal": false,
    "valores": {
-    "Controladora 31/03/2026": 0.0,
-    "Controladora 31/12/2025": 0.0,
     "Consolidado 31/03/2026": 8430.0,
     "Consolidado 31/12/2025": 11058.0
    }
   },
   {
    "origem": "Depósitos judiciais",
-   "hierarquia": "Ativo Não Circulante",
-   "codigo": "",
+   "hierarquia": "Realizável a longo prazo",
+   "codigo": "21",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
@@ -182,23 +176,21 @@
   },
   {
    "origem": "Contas a receber",
-   "hierarquia": "Ativo Não Circulante",
-   "codigo": "",
+   "hierarquia": "Realizável a longo prazo",
+   "codigo": "6",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
    "isTotal": false,
    "valores": {
-    "Controladora 31/03/2026": 0.0,
-    "Controladora 31/12/2025": 0.0,
     "Consolidado 31/03/2026": 7242.0,
     "Consolidado 31/12/2025": 9532.0
    }
   },
   {
    "origem": "Outros ativos",
-   "hierarquia": "Ativo Não Circulante",
-   "codigo": "",
+   "hierarquia": "Realizável a longo prazo",
+   "codigo": "9",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
@@ -212,7 +204,7 @@
   },
   {
    "origem": "Total do realizável a longo prazo",
-   "hierarquia": "Ativo Não Circulante",
+   "hierarquia": "",
    "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
@@ -227,8 +219,8 @@
   },
   {
    "origem": "Investimentos",
-   "hierarquia": "Ativo Não Circulante",
-   "codigo": "",
+   "hierarquia": "",
+   "codigo": "10",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
@@ -242,8 +234,8 @@
   },
   {
    "origem": "Imobilizado",
-   "hierarquia": "Ativo Não Circulante",
-   "codigo": "",
+   "hierarquia": "",
+   "codigo": "11",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
@@ -257,8 +249,8 @@
   },
   {
    "origem": "Intangível",
-   "hierarquia": "Ativo Não Circulante",
-   "codigo": "",
+   "hierarquia": "",
+   "codigo": "11",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
@@ -272,8 +264,8 @@
   },
   {
    "origem": "Direito de uso",
-   "hierarquia": "Ativo Não Circulante",
-   "codigo": "",
+   "hierarquia": "",
+   "codigo": "12",
    "pagina": 6,
    "grupo": "Ativo",
    "subCategoria": "Não Circulante",
@@ -287,7 +279,7 @@
   },
   {
    "origem": "Total não circulante",
-   "hierarquia": "Ativo",
+   "hierarquia": "",
    "codigo": "",
    "pagina": 6,
    "grupo": "Ativo",
@@ -317,8 +309,8 @@
   },
   {
    "origem": "Fornecedores",
-   "hierarquia": "Passivo Circulante",
-   "codigo": "",
+   "hierarquia": "Circulante",
+   "codigo": "13",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -332,8 +324,8 @@
   },
   {
    "origem": "Financiamentos",
-   "hierarquia": "Passivo Circulante",
-   "codigo": "",
+   "hierarquia": "Circulante",
+   "codigo": "14",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -347,8 +339,8 @@
   },
   {
    "origem": "Debêntures",
-   "hierarquia": "Passivo Circulante",
-   "codigo": "",
+   "hierarquia": "Circulante",
+   "codigo": "15",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -362,8 +354,8 @@
   },
   {
    "origem": "Arrendamento",
-   "hierarquia": "Passivo Circulante",
-   "codigo": "",
+   "hierarquia": "Circulante",
+   "codigo": "12",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -377,8 +369,8 @@
   },
   {
    "origem": "Obrigações trabalhistas",
-   "hierarquia": "Passivo Circulante",
-   "codigo": "",
+   "hierarquia": "Circulante",
+   "codigo": "16",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -392,8 +384,8 @@
   },
   {
    "origem": "Obrigações e parcelamentos tributários",
-   "hierarquia": "Passivo Circulante",
-   "codigo": "",
+   "hierarquia": "Circulante",
+   "codigo": "17",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -407,23 +399,22 @@
   },
   {
    "origem": "IRPJ e CSLL a recolher",
-   "hierarquia": "Passivo Circulante",
+   "hierarquia": "Circulante",
    "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
    "isTotal": false,
    "valores": {
-    "Controladora 31/03/2026": 0.0,
-    "Controladora 31/12/2025": 231.0,
-    "Consolidado 31/03/2026": 12743.0,
-    "Consolidado 31/12/2025": 38280.0
+    "Controladora 31/03/2026": 231.0,
+    "Controladora 31/12/2025": 12743.0,
+    "Consolidado 31/03/2026": 38280.0
    }
   },
   {
    "origem": "Contas a pagar - aquisições de empresas",
-   "hierarquia": "Passivo Circulante",
-   "codigo": "",
+   "hierarquia": "Circulante",
+   "codigo": "18",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -437,8 +428,8 @@
   },
   {
    "origem": "Juros sobre capital próprio e dividendos a pagar",
-   "hierarquia": "Passivo Circulante",
-   "codigo": "",
+   "hierarquia": "Circulante",
+   "codigo": "23.c",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -452,8 +443,8 @@
   },
   {
    "origem": "Outros passivos",
-   "hierarquia": "Passivo Circulante",
-   "codigo": "",
+   "hierarquia": "Circulante",
+   "codigo": "19",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Circulante",
@@ -467,7 +458,7 @@
   },
   {
    "origem": "Total circulante",
-   "hierarquia": "Passivo",
+   "hierarquia": "",
    "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
@@ -482,23 +473,21 @@
   },
   {
    "origem": "Financiamentos",
-   "hierarquia": "Passivo Não Circulante",
-   "codigo": "",
+   "hierarquia": "Não circulante",
+   "codigo": "14",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Não Circulante",
    "isTotal": false,
    "valores": {
-    "Controladora 31/03/2026": 0.0,
-    "Controladora 31/12/2025": 0.0,
     "Consolidado 31/03/2026": 701.0,
     "Consolidado 31/12/2025": 892.0
    }
   },
   {
    "origem": "Debêntures",
-   "hierarquia": "Passivo Não Circulante",
-   "codigo": "",
+   "hierarquia": "Não circulante",
+   "codigo": "15",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Não Circulante",
@@ -512,8 +501,8 @@
   },
   {
    "origem": "Arrendamento",
-   "hierarquia": "Passivo Não Circulante",
-   "codigo": "",
+   "hierarquia": "Não circulante",
+   "codigo": "12",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Não Circulante",
@@ -527,8 +516,8 @@
   },
   {
    "origem": "Imposto de renda e contribuição social diferidos",
-   "hierarquia": "Passivo Não Circulante",
-   "codigo": "",
+   "hierarquia": "Não circulante",
+   "codigo": "20",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Não Circulante",
@@ -542,8 +531,8 @@
   },
   {
    "origem": "Provisão para riscos tributários, trabalhistas e cíveis",
-   "hierarquia": "Passivo Não Circulante",
-   "codigo": "",
+   "hierarquia": "Não circulante",
+   "codigo": "21",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Não Circulante",
@@ -557,23 +546,21 @@
   },
   {
    "origem": "Obrigações tributárias",
-   "hierarquia": "Passivo Não Circulante",
-   "codigo": "",
+   "hierarquia": "Não circulante",
+   "codigo": "17",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Não Circulante",
    "isTotal": false,
    "valores": {
-    "Controladora 31/03/2026": 0.0,
-    "Controladora 31/12/2025": 0.0,
     "Consolidado 31/03/2026": 850.0,
     "Consolidado 31/12/2025": 850.0
    }
   },
   {
    "origem": "Contas a pagar - aquisições de empresas",
-   "hierarquia": "Passivo Não Circulante",
-   "codigo": "",
+   "hierarquia": "Não circulante",
+   "codigo": "18",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Não Circulante",
@@ -587,8 +574,8 @@
   },
   {
    "origem": "Dividendos a pagar",
-   "hierarquia": "Passivo Não Circulante",
-   "codigo": "",
+   "hierarquia": "Não circulante",
+   "codigo": "23.c",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "Não Circulante",
@@ -602,7 +589,7 @@
   },
   {
    "origem": "Total não circulante",
-   "hierarquia": "Passivo",
+   "hierarquia": "",
    "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
@@ -617,8 +604,8 @@
   },
   {
    "origem": "Capital social",
-   "hierarquia": "Patrimônio Líquido",
-   "codigo": "",
+   "hierarquia": "Patrimônio líquido",
+   "codigo": "23 a.",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "PL",
@@ -632,7 +619,7 @@
   },
   {
    "origem": "Reserva de capital",
-   "hierarquia": "Patrimônio Líquido",
+   "hierarquia": "Patrimônio líquido",
    "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
@@ -647,7 +634,7 @@
   },
   {
    "origem": "Reservas de lucro",
-   "hierarquia": "Patrimônio Líquido",
+   "hierarquia": "Patrimônio líquido",
    "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
@@ -662,8 +649,8 @@
   },
   {
    "origem": "Ações em tesouraria",
-   "hierarquia": "Patrimônio Líquido",
-   "codigo": "",
+   "hierarquia": "Patrimônio líquido",
+   "codigo": "23.d",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "PL",
@@ -677,7 +664,7 @@
   },
   {
    "origem": "Ajustes de avaliação patrimonial",
-   "hierarquia": "Patrimônio Líquido",
+   "hierarquia": "Patrimônio líquido",
    "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
@@ -692,7 +679,7 @@
   },
   {
    "origem": "Lucro do período",
-   "hierarquia": "Patrimônio Líquido",
+   "hierarquia": "Patrimônio líquido",
    "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
@@ -700,14 +687,12 @@
    "isTotal": false,
    "valores": {
     "Controladora 31/03/2026": 201212.0,
-    "Controladora 31/12/2025": 0.0,
-    "Consolidado 31/03/2026": 201212.0,
-    "Consolidado 31/12/2025": 0.0
+    "Consolidado 31/03/2026": 201212.0
    }
   },
   {
    "origem": "Patrimônio líquido dos controladores",
-   "hierarquia": "Patrimônio Líquido",
+   "hierarquia": "",
    "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
@@ -722,22 +707,20 @@
   },
   {
    "origem": "Participação de não controladores",
-   "hierarquia": "Patrimônio Líquido",
+   "hierarquia": "",
    "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
    "subCategoria": "PL",
    "isTotal": false,
    "valores": {
-    "Controladora 31/03/2026": 0.0,
-    "Controladora 31/12/2025": 0.0,
     "Consolidado 31/03/2026": 95020.0,
     "Consolidado 31/12/2025": 94928.0
    }
   },
   {
    "origem": "Total do patrimônio líquido",
-   "hierarquia": "Patrimônio Líquido",
+   "hierarquia": "",
    "codigo": "",
    "pagina": 6,
    "grupo": "Passivo",
@@ -775,9 +758,9 @@
    "isTotal": false,
    "valores": {
     "Controladora 31/03/2026": 1302560.0,
-    "Controladora 31/12/2025": 1095153.0,
+    "Controladora 31/03/2025": 1095153.0,
     "Consolidado 31/03/2026": 2223118.0,
-    "Consolidado 31/12/2025": 2015073.0
+    "Consolidado 31/03/2025": 2015073.0
    }
   },
   {
@@ -790,9 +773,9 @@
    "isTotal": false,
    "valores": {
     "Controladora 31/03/2026": -907262.0,
-    "Controladora 31/12/2025": -751452.0,
+    "Controladora 31/03/2025": -751452.0,
     "Consolidado 31/03/2026": -1595052.0,
-    "Consolidado 31/12/2025": -1442955.0
+    "Consolidado 31/03/2025": -1442955.0
    }
   },
   {
@@ -805,10 +788,20 @@
    "isTotal": true,
    "valores": {
     "Controladora 31/03/2026": 395298.0,
-    "Controladora 31/12/2025": 343701.0,
+    "Controladora 31/03/2025": 343701.0,
     "Consolidado 31/03/2026": 628066.0,
-    "Consolidado 31/12/2025": 572118.0
+    "Consolidado 31/03/2025": 572118.0
    }
+  },
+  {
+   "origem": "(Despesas) receitas operacionais",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {}
   },
   {
    "origem": "Gerais e administrativas",
@@ -820,9 +813,9 @@
    "isTotal": false,
    "valores": {
     "Controladora 31/03/2026": -123187.0,
-    "Controladora 31/12/2025": -115819.0,
+    "Controladora 31/03/2025": -115819.0,
     "Consolidado 31/03/2026": -208138.0,
-    "Consolidado 31/12/2025": -196264.0
+    "Consolidado 31/03/2025": -196264.0
    }
   },
   {
@@ -835,9 +828,9 @@
    "isTotal": false,
    "valores": {
     "Controladora 31/03/2026": -13452.0,
-    "Controladora 31/12/2025": -10312.0,
+    "Controladora 31/03/2025": -10312.0,
     "Consolidado 31/03/2026": -46353.0,
-    "Consolidado 31/12/2025": -41781.0
+    "Consolidado 31/03/2025": -41781.0
    }
   },
   {
@@ -850,9 +843,9 @@
    "isTotal": false,
    "valores": {
     "Controladora 31/03/2026": -714.0,
-    "Controladora 31/12/2025": 1647.0,
+    "Controladora 31/03/2025": 1647.0,
     "Consolidado 31/03/2026": -700.0,
-    "Consolidado 31/12/2025": 1411.0
+    "Consolidado 31/03/2025": 1411.0
    }
   },
   {
@@ -865,9 +858,9 @@
    "isTotal": false,
    "valores": {
     "Controladora 31/03/2026": 68995.0,
-    "Controladora 31/12/2025": 66106.0,
+    "Controladora 31/03/2025": 66106.0,
     "Consolidado 31/03/2026": -5062.0,
-    "Consolidado 31/12/2025": -2271.0
+    "Consolidado 31/03/2025": -2271.0
    }
   },
   {
@@ -880,9 +873,9 @@
    "isTotal": true,
    "valores": {
     "Controladora 31/03/2026": 326940.0,
-    "Controladora 31/12/2025": 285323.0,
+    "Controladora 31/03/2025": 285323.0,
     "Consolidado 31/03/2026": 367813.0,
-    "Consolidado 31/12/2025": 333213.0
+    "Consolidado 31/03/2025": 333213.0
    }
   },
   {
@@ -895,9 +888,9 @@
    "isTotal": false,
    "valores": {
     "Controladora 31/03/2026": 57681.0,
-    "Controladora 31/12/2025": 62852.0,
+    "Controladora 31/03/2025": 62852.0,
     "Consolidado 31/03/2026": 80815.0,
-    "Consolidado 31/12/2025": 79100.0
+    "Consolidado 31/03/2025": 79100.0
    }
   },
   {
@@ -910,9 +903,9 @@
    "isTotal": false,
    "valores": {
     "Controladora 31/03/2026": -173772.0,
-    "Controladora 31/12/2025": -162146.0,
+    "Controladora 31/03/2025": -162146.0,
     "Consolidado 31/03/2026": -195875.0,
-    "Consolidado 31/12/2025": -182470.0
+    "Consolidado 31/03/2025": -182470.0
    }
   },
   {
@@ -925,9 +918,9 @@
    "isTotal": true,
    "valores": {
     "Controladora 31/03/2026": -116091.0,
-    "Controladora 31/12/2025": -99394.0,
+    "Controladora 31/03/2025": -99294.0,
     "Consolidado 31/03/2026": -115060.0,
-    "Consolidado 31/12/2025": -103370.0
+    "Consolidado 31/03/2025": -103370.0
    }
   },
   {
@@ -940,9 +933,9 @@
    "isTotal": true,
    "valores": {
     "Controladora 31/03/2026": 210849.0,
-    "Controladora 31/12/2025": 186029.0,
+    "Controladora 31/03/2025": 186029.0,
     "Consolidado 31/03/2026": 252753.0,
-    "Consolidado 31/12/2025": 229843.0
+    "Consolidado 31/03/2025": 229843.0
    }
   },
   {
@@ -953,11 +946,21 @@
    "grupo": "DRE",
    "subCategoria": "",
    "isTotal": false,
+   "valores": {}
+  },
+  {
+   "origem": "Corrente",
+   "hierarquia": "Imposto de renda e contribuição social",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
    "valores": {
     "Controladora 31/03/2026": -15910.0,
-    "Controladora 31/12/2025": -7315.0,
+    "Controladora 31/03/2025": -7315.0,
     "Consolidado 31/03/2026": -54705.0,
-    "Consolidado 31/12/2025": -46840.0
+    "Consolidado 31/03/2025": -46840.0
    }
   },
   {
@@ -970,9 +973,9 @@
    "isTotal": false,
    "valores": {
     "Controladora 31/03/2026": 6273.0,
-    "Controladora 31/12/2025": 572.0,
+    "Controladora 31/03/2025": 572.0,
     "Consolidado 31/03/2026": -395.0,
-    "Consolidado 31/12/2025": -7173.0
+    "Consolidado 31/03/2025": -7173.0
    }
   },
   {
@@ -985,14 +988,24 @@
    "isTotal": true,
    "valores": {
     "Controladora 31/03/2026": 201212.0,
-    "Controladora 31/12/2025": 179286.0,
+    "Controladora 31/03/2025": 179286.0,
     "Consolidado 31/03/2026": 197653.0,
-    "Consolidado 31/12/2025": 175830.0
+    "Consolidado 31/03/2025": 175830.0
    }
   },
   {
-   "origem": "Atribuível aos sócios",
+   "origem": "Atribuível aos sócios:",
    "hierarquia": "",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {}
+  },
+  {
+   "origem": "Controladores",
+   "hierarquia": "Atribuível aos sócios:",
    "codigo": "",
    "pagina": 7,
    "grupo": "DRE",
@@ -1000,29 +1013,27 @@
    "isTotal": false,
    "valores": {
     "Controladora 31/03/2026": 201212.0,
-    "Controladora 31/12/2025": 179286.0,
+    "Controladora 31/03/2025": 179286.0,
     "Consolidado 31/03/2026": 201212.0,
-    "Consolidado 31/12/2025": 179286.0
+    "Consolidado 31/03/2025": 179286.0
    }
   },
   {
    "origem": "Não controladores",
-   "hierarquia": "Atribuível aos sócios",
+   "hierarquia": "Atribuível aos sócios:",
    "codigo": "",
    "pagina": 7,
    "grupo": "DRE",
    "subCategoria": "",
    "isTotal": false,
    "valores": {
-    "Controladora 31/03/2026": 0.0,
-    "Controladora 31/12/2025": 0.0,
     "Consolidado 31/03/2026": -3559.0,
-    "Consolidado 31/12/2025": -3456.0
+    "Consolidado 31/03/2025": -3456.0
    }
   },
   {
-   "origem": "Resultado abrangente total do período",
-   "hierarquia": "Outros resultados abrangentes",
+   "origem": "Total atribuível aos sócios",
+   "hierarquia": "Atribuível aos sócios:",
    "codigo": "",
    "pagina": 7,
    "grupo": "DRE",
@@ -1030,9 +1041,70 @@
    "isTotal": true,
    "valores": {
     "Controladora 31/03/2026": 201212.0,
-    "Controladora 31/12/2025": 179286.0,
+    "Controladora 31/03/2025": 179286.0,
     "Consolidado 31/03/2026": 197653.0,
-    "Consolidado 31/12/2025": 175830.0
+    "Consolidado 31/03/2025": 175830.0
+   }
+  },
+  {
+   "origem": "Outros resultados abrangentes",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {}
+  },
+  {
+   "origem": "Resultado abrangente total do período",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": true,
+   "valores": {
+    "Controladora 31/03/2026": 201212.0,
+    "Controladora 31/03/2025": 179286.0,
+    "Consolidado 31/03/2026": 197653.0,
+    "Consolidado 31/03/2025": 175830.0
+   }
+  },
+  {
+   "origem": "Lucro por ação atribuível aos acionistas da Companhia",
+   "hierarquia": "",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {}
+  },
+  {
+   "origem": "Lucro básico por ação (média ponderada)",
+   "hierarquia": "Lucro por ação atribuível aos acionistas da Companhia",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {
+    "Consolidado 31/03/2026": 0.37,
+    "Consolidado 31/03/2025": 0.33
+   }
+  },
+  {
+   "origem": "Lucro diluído por ação (média ponderada)",
+   "hierarquia": "Lucro por ação atribuível aos acionistas da Companhia",
+   "codigo": "",
+   "pagina": 7,
+   "grupo": "DRE",
+   "subCategoria": "",
+   "isTotal": false,
+   "valores": {
+    "Consolidado 31/03/2026": 0.37,
+    "Consolidado 31/03/2025": 0.33
    }
   }
  ],
@@ -1041,7 +1113,9 @@
    "Controladora 31/03/2026",
    "Controladora 31/12/2025",
    "Consolidado 31/03/2026",
-   "Consolidado 31/12/2025"
+   "Consolidado 31/12/2025",
+   "Controladora 31/03/2025",
+   "Consolidado 31/03/2025"
   ],
   "visoes": [
    "Controladora",
@@ -1058,6 +1132,6 @@
   ],
   "paginas_com_falha": []
  },
- "provider": "groq",
+ "provider": "gemini",
  "prompt_version": "v2.1-portal"
 }
