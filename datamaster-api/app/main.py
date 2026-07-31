@@ -167,6 +167,13 @@ async def _extract_two_pass(data: bytes, mime: str, progress=_noop):
     if not is_pdf or not paginas:
         return None  # sem páginas identificáveis -> single-shot
 
+    paginas_dre = set()
+    for p in ident.get("paginas_dre") or []:
+        try:
+            paginas_dre.add(int(p))
+        except (TypeError, ValueError):
+            continue
+
     # dedupe preservando ordem (modelos fracos às vezes repetem rótulos)
     periodos = list(dict.fromkeys(str(x) for x in (ident.get("periodos") or [])))
     periodos_json = json.dumps(periodos, ensure_ascii=False) or '["valor"]'
@@ -233,6 +240,19 @@ async def _extract_two_pass(data: bytes, mime: str, progress=_noop):
 
         for r in rows:
             r["pagina"] = pagina
+            # REGRA ABSOLUTA (Guia §14): DRE só pode ser alocada em DRE. O
+            # matching por similaridade textual só RESPEITA essa regra
+            # quando "grupo" está preenchido (filtro em core/matching.js);
+            # se a extração deixa "grupo" vazio numa linha de página DRE —
+            # mais comum em layouts fragmentados, onde o rótulo isolado
+            # ("Controladores"/"Não controladores") perde contexto — o
+            # filtro vira NO-OP e a similaridade de texto decide sozinha
+            # (bug real: "Controladores" ~ "Participação de não
+            # controladores" só pela palavra em comum, indo pro Passivo).
+            # Aqui não é julgamento: já SABEMOS que a página é DRE.
+            if pagina in paginas_dre and not str(r.get("grupo") or "").strip():
+                r["grupo"] = "DRE"
+                r["subCategoria"] = "DRE"
         return rows
 
     results = await asyncio.gather(
@@ -459,6 +479,13 @@ async def julgamental(body: JulgamentalIn):
         n = _norm(p.get("destino"))
         valid[n] = p
         loose.setdefault(_sem_prefixo(n), []).append(p)
+    # grupo ORIGINAL de cada linha (o que a extração/matching já sabia sobre
+    # ela) — a checagem abaixo compara a SUGESTÃO contra ISSO, não só contra
+    # si mesma. Sem isto, um grupo vazio na linha deixava a "regra absoluta"
+    # (DRE só em DRE) sem nada pra comparar e o LLM podia rotear uma linha
+    # de DRE (ex.: "Controladores"/"Não controladores", atribuição de
+    # resultado) pra um destino de Passivo/PL só por semelhança de texto.
+    grupo_original = {str(r.get("id")): _norm(r.get("grupo")) for r in body.rows if r.get("grupo")}
     suggestions = []
     for s in out.get("suggestions") or []:
         dest = str(s.get("destino", "")).strip()
@@ -475,7 +502,10 @@ async def julgamental(body: JulgamentalIn):
             continue  # alucinação de destino -> descarta
         grupo = str(s.get("grupo", "")).strip() or p.get("grupo")
         if _norm(grupo) != _norm(p.get("grupo")):
-            continue  # troca de grupo estrutural -> descarta (regra absoluta)
+            continue  # troca de grupo estrutural (auto-consistência) -> descarta
+        g_orig = grupo_original.get(str(s.get("id")))
+        if g_orig and g_orig != _norm(p.get("grupo")):
+            continue  # troca de grupo vs. a LINHA ORIGINAL -> descarta (regra absoluta)
         suggestions.append({
             "id": s.get("id"),
             "origem": s.get("origem"),
