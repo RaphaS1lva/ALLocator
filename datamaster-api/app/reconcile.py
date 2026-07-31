@@ -29,8 +29,23 @@ _VALUE_RE = re.compile(
 _DASH_RE = re.compile(r"^[-–—]$")  # "-", en dash, em dash
 
 
+# Travessões/hifens tipográficos, aspas curvas e espaços especiais que o
+# LLM costuma "normalizar" ao transcrever (ex.: "–" do documento vira "-"
+# na saída do modelo) — sem isso, o comparador de texto falha e a linha
+# "não é encontrada", desligando a reconciliação justo onde ela mais
+# importa. Bug real: "Dividendos a receber – Hermes Pardini" (en-dash no
+# PDF) não batia com a mesma origem transcrita com hífen comum pelo LLM.
+_PONTUACAO_VARIANTE = str.maketrans({
+    "‐": "-", "‑": "-", "‒": "-", "–": "-", "—": "-",
+    "―": "-", "−": "-",
+    "‘": "'", "’": "'", "“": '"', "”": '"',
+    " ": " ", " ": " ", "​": "",
+})
+
+
 def _norm(s: str) -> str:
-    s = unicodedata.normalize("NFKD", str(s or "").strip().lower())
+    s = str(s or "").strip().lower().translate(_PONTUACAO_VARIANTE)
+    s = unicodedata.normalize("NFKD", s)
     return "".join(c for c in s if not unicodedata.combining(c))
 
 
@@ -69,15 +84,17 @@ def _to_number(tok: str) -> float | None:
     return -n if neg else n
 
 
-def _rest_after_label(line_tokens: list[str], origem_tokens: list[str]) -> list[str] | None:
-    """Se `line_tokens` começa com as mesmas palavras (normalizadas) de
-    `origem_tokens`, devolve o RESTO da linha (rótulo removido)."""
-    if not origem_tokens or len(origem_tokens) > len(line_tokens):
+def _find_subsequence(tokens: list[str], sub: list[str], start: int) -> int | None:
+    """Índice da primeira ocorrência de `sub` (normalizada) dentro de
+    `tokens`, buscando a partir de `start`. None se não encontrar."""
+    sub_n = [_norm(s) for s in sub]
+    if not sub_n:
         return None
-    for lt, ot in zip(line_tokens[: len(origem_tokens)], origem_tokens):
-        if _norm(lt) != _norm(ot):
-            return None
-    return line_tokens[len(origem_tokens):]
+    limit = len(tokens) - len(sub_n)
+    for i in range(start, limit + 1):
+        if all(_norm(tokens[i + j]) == sub_n[j] for j in range(len(sub_n))):
+            return i
+    return None
 
 
 _DATE_RE = re.compile(r"\d{1,2}/\d{1,2}/\d{4}")
@@ -119,16 +136,37 @@ def detect_column_order(page_text: str, visoes: list[str], periodos: list[str]) 
 
 def reconcile_page(page_text: str, rows: list[dict], column_order: list[str]) -> list[str]:
     """Sobrescreve `row["valores"]` de cada linha com o parser posicional
-    determinístico, quando a linha original for localizada e tokenizada com
-    confiança (contagem de tokens bate com o nº de colunas da página).
-    Muta `rows` in-place. Retorna a lista de avisos (origens não
-    reconciliadas — nelas os valores do LLM foram mantidos, sem garantia).
+    determinístico, quando a origem for localizada no texto e os N valores
+    seguintes forem tokenizados com confiança. Muta `rows` in-place.
+    Retorna a lista de avisos (origens não reconciliadas — nelas os valores
+    do LLM foram mantidos, sem garantia).
+
+    Dois formatos de PDF coexistem na prática (o mesmo documento pode ter
+    os dois em páginas diferentes): (a) rótulo + valores todos na MESMA
+    linha; (b) rótulo espalhado por 1-2 linhas e CADA valor em sua própria
+    linha (comum em relatórios anuais completos, diferente do ITR
+    trimestral). A busca do rótulo usa um fluxo CONTÍNUO de tokens (ignora
+    onde o PDF quebrou linha, então acha rótulos que atravessam linhas);
+    mas para decidir ONDE terminam os valores, usamos uma pista estrutural
+    confiável em vez de tentar adivinhar pelo formato do número: qualquer
+    token que ainda esteja na MESMA LINHA do fim do rótulo é código/Nota
+    (nunca valor) — nesses documentos um valor real nunca fica colado ao
+    rótulo quando o restante da tabela usa "um valor por linha". Isso evita
+    confundir Nota "26" com um valor real de mesmo formato (ambos parecem
+    um número pequeno — o formato sozinho não decide, a ESTRUTURA decide).
     """
     if not column_order or not page_text:
         return []
     n = len(column_order)
-    lines = [ln for ln in page_text.splitlines() if ln.strip()]
-    available = list(range(len(lines)))  # índices de linha ainda não consumidos
+
+    flat: list[str] = []
+    token_line: list[int] = []
+    for li, ln in enumerate(page_text.splitlines()):
+        for t in ln.split():
+            flat.append(t)
+            token_line.append(li)
+
+    cursor = 0
     warnings: list[str] = []
 
     for row in rows:
@@ -136,28 +174,36 @@ def reconcile_page(page_text: str, rows: list[dict], column_order: list[str]) ->
         if not origem:
             continue
         o_tokens = origem.split()
-        matched_idx, rest = None, None
-        for i in available:
-            r = _rest_after_label(lines[i].split(), o_tokens)
-            if r is not None:
-                matched_idx, rest = i, r
-                break
-        if matched_idx is None:
-            warnings.append(f'"{origem}": linha não localizada no texto — mantidos valores do LLM')
+        pos = _find_subsequence(flat, o_tokens, cursor)
+        if pos is None:
+            warnings.append(f'"{origem}": não localizada no texto da página — mantidos valores do LLM')
             continue
-        available.remove(matched_idx)
 
-        if len(rest) < n:
-            warnings.append(
-                f'"{origem}": {len(rest)} token(s) após o rótulo, esperado(s) >= {n} — mantidos valores do LLM',
-            )
-            continue
-        # os N ÚLTIMOS tokens = valores (posição = ordem das colunas); o que
-        # sobrar ANTES (se houver) é coluna de Nota/código — descartado
-        value_tokens = rest[-n:]
-        if not all(_is_value_token(t) for t in value_tokens):
-            warnings.append(f'"{origem}": tokens finais não parecem numéricos — mantidos valores do LLM')
-            continue
+        label_end = pos + len(o_tokens)
+        label_last_line = token_line[label_end - 1]
+        k = label_end
+        while k < len(flat) and token_line[k] == label_last_line:
+            k += 1
+        rest_mesma_linha = flat[label_end:k]  # colado ao rótulo -> Nota/código, nunca valor
+
+        if len(rest_mesma_linha) >= n:
+            # linha "compacta": rótulo + (nota) + N valores tudo junto
+            value_tokens = rest_mesma_linha[-n:]
+            consumed = k
+        else:
+            # linha "espalhada": o que sobrou colado ao rótulo é sempre
+            # Nota/código (descartado); os N valores vêm das PRÓXIMAS
+            # linhas, token a token
+            vstart = k
+            cand = flat[vstart: vstart + n]
+            if len(cand) < n or not all(_is_value_token(t) for t in cand):
+                warnings.append(
+                    f'"{origem}": não foi possível localizar {n} valor(es) válidos após o rótulo — mantidos valores do LLM',
+                )
+                cursor = label_end
+                continue
+            value_tokens = cand
+            consumed = vstart + n
 
         valores: dict[str, float] = {}
         for col, tok in zip(column_order, value_tokens):
@@ -165,6 +211,7 @@ def reconcile_page(page_text: str, rows: list[dict], column_order: list[str]) ->
             if v is not None:
                 valores[col] = v
         row["valores"] = valores  # número é fato, não julgamento — SOBRESCREVE o LLM
+        cursor = consumed
 
     return warnings
 
