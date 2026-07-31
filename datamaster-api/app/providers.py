@@ -148,9 +148,17 @@ async def _gemini_once(model: str, body: dict[str, Any]) -> str:
     um = data.get("usageMetadata") or {}
     record_usage("gemini", um.get("promptTokenCount", 0), um.get("candidatesTokenCount", 0))
     try:
-        return data["candidates"][0]["content"]["parts"][0]["text"]
+        candidate = data["candidates"][0]
+        text = candidate["content"]["parts"][0]["text"]
     except (KeyError, IndexError) as e:
         raise ProviderError(f"gemini[{model}] resposta inesperada: {data}") from e
+    # mesmo princípio do _openai_compat: JSON truncado por maxOutputTokens
+    # fecha "válido" mas incompleto — sem checar finishReason isso vira
+    # sucesso silencioso com linhas faltando.
+    if candidate.get("finishReason") == "MAX_TOKENS":
+        record_error("gemini", "resposta truncada por maxOutputTokens")
+        raise ProviderError(f"gemini[{model}]: resposta truncada por maxOutputTokens — não confiável")
+    return text
 
 
 async def _gemini(prompt: str, *, file_bytes: bytes | None = None,
@@ -320,11 +328,23 @@ async def _openai_compat(base_url: str, key: str, model: str, prompt: str, *,
     u = data.get("usage") or {}
     record_usage(name, u.get("prompt_tokens", 0), u.get("completion_tokens", 0))
     try:
-        return data["choices"][0]["message"]["content"]
+        choice = data["choices"][0]
+        content = choice["message"]["content"]
     except (KeyError, IndexError, TypeError) as e:
         # alguns gateways devolvem 200 com corpo de erro (rate limit etc.)
         record_error(name, f"resposta inesperada: {str(data)[:120]}")
         raise ProviderError(f"{name} resposta inesperada: {str(data)[:300]}") from e
+    # TRUNCAMENTO por max_tokens vira ProviderError (retentável pela cascata
+    # já existente), nunca sucesso silencioso: em json_mode o gateway fecha
+    # o JSON gracioso ANTES do corte (objeto válido, mas faltando linhas do
+    # fim da página — PL some inteiro por ficar no fim do BP). Sem checar
+    # finish_reason isso passa por completo (JSON válido, sem repetição) e
+    # o parser/detector de degeneração nunca veem o problema. Número
+    # incompleto é tão inaceitável quanto número errado.
+    if choice.get("finish_reason") == "length":
+        record_error(name, "resposta truncada por max_tokens (finish_reason=length)")
+        raise ProviderError(f"{name}: resposta truncada por max_tokens — não confiável")
+    return content
 
 
 # Reservas do Groq, tentadas em ordem quando o modelo principal esgota a
@@ -350,8 +370,12 @@ async def _groq(prompt: str, json_mode: bool = False) -> str:
                                         max_tokens=4096)
         except ProviderError as e:
             errors.append(str(e)[:160])
-            if " 429:" not in str(e) and " 404:" not in str(e):
-                raise  # erro que não é cota/slug: não adianta trocar de modelo
+            msg = str(e)
+            # cota/slug/truncamento: vale tentar o próximo modelo da lista
+            # (verba diária SEPARADA por modelo — e um modelo diferente pode
+            # ser mais conciso e não truncar no mesmo max_tokens=4096)
+            if " 429:" not in msg and " 404:" not in msg and "truncada" not in msg:
+                raise  # erro que não é cota/slug/truncamento: não adianta trocar de modelo
     raise ProviderError(" | ".join(errors))
 
 
